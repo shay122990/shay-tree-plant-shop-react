@@ -1,8 +1,8 @@
 import { plants } from "../../plants-data";
+import "./plant-card.styles.css";
 const PlantCard = () => {
   return (
     <div className="container">
-      <h1 className="text-center my-4">Plant Store</h1>
       <div className="row row-cols-1 row-cols-md-3 g-4">
         {plants.map((plant) => (
           <div key={plant.id} className="col">
