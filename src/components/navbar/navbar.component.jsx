@@ -1,8 +1,7 @@
+import "./navbar.styles.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/shays-tree.jpg";
-import SignIn from "../../pages/sign-in/sign-in.page";
-import Cart from "../../pages/cart/cart.page";
 
 const Navbar = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -12,8 +11,8 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <div className="container-fluid">
+    <nav className="navbar navbar-expand-lg navbar-light bg-light px-0">
+      <div className="container-fluid d-flex justify-content-between mx-5">
         <Link className="navbar-brand" to="/">
           <img src={logo} alt="logo" />
         </Link>
@@ -81,7 +80,7 @@ const Navbar = () => {
                     to="/sign-in"
                     onClick={() => setDropdownOpen(false)}
                   >
-                    <SignIn />
+                    Sign In
                   </Link>
                 </li>
                 <li>
@@ -90,7 +89,7 @@ const Navbar = () => {
                     to="/cart"
                     onClick={() => setDropdownOpen(false)}
                   >
-                    <Cart />
+                    Cart
                   </Link>
                 </li>
               </ul>
