@@ -1,3 +1,4 @@
+import "./category.styles.css";
 import { useParams, useNavigate } from "react-router-dom";
 import { categories, plants } from "../../plants-data";
 import PlantCard from "../../components/plant-card/plant-card.components";
@@ -16,7 +17,8 @@ const Category = () => {
   );
 
   return (
-    <div>
+    <div className="container category-container">
+      <h2>{category.name}</h2>
       <button
         type="button"
         className="btn btn-outline-secondary"
@@ -24,7 +26,6 @@ const Category = () => {
       >
         Back to Categories
       </button>
-      <h2>{category.name}</h2>
       <PlantCard plants={categoryPlants} />
     </div>
   );

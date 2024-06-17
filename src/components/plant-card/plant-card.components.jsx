@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import AddToCart from "../addToCart/addToCart.component";
 import "./plant-card.styles.css";
 
 // eslint-disable-next-line react/prop-types
@@ -18,6 +19,7 @@ const PlantCard = ({ plants }) => {
                 <h5 className="card-title">{plant.name}</h5>
                 <p className="card-text">{plant.description}</p>
                 <p className="card-text">Price: ${plant.price.toFixed(2)}</p>
+                <AddToCart />
               </div>
             </div>
           </div>
