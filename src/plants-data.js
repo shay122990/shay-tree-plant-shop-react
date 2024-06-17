@@ -36,7 +36,7 @@ import img35 from "./assets/img35.jpg";
 import img36 from "./assets/img36.jpg";
 import img37 from "./assets/img37.jpg";
 
-const plants = [
+export const plants = [
   {
     id: 1,
     name: "Snake Plant",
@@ -125,7 +125,6 @@ const plants = [
     description:
       "The bird of paradise plant is known for its striking orange and blue flowers resembling a bird in flight.",
   },
-  // Additional 25 plants
   {
     id: 12,
     name: "Bamboo Palm",
@@ -336,27 +335,30 @@ const plants = [
   },
 ];
 
-const categories = [
+export const categories = [
   {
     name: "Low-light",
     plantIds: [1, 3, 7, 10, 16, 19, 21, 24, 30],
+    image: img21,
   },
   {
     name: "Indoor",
     plantIds: plants.map((plant) => plant.id), // All plants are considered indoor
+    image: img14,
   },
   {
     name: "Outdoor",
     plantIds: [11, 9, 27, 25, 14, 28, 29],
+    image: img31,
   },
   {
     name: "Tropical",
     plantIds: [11, 4, 18, 27, 30, 32, 34],
+    image: img4,
   },
   {
     name: "Air-Purifiers",
     plantIds: [1, 3, 7, 8, 20, 22, 26],
+    image: img12,
   },
 ];
-
-export { plants, categories };

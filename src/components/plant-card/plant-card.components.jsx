@@ -1,6 +1,8 @@
-import { plants } from "../../plants-data";
+/* eslint-disable react/prop-types */
 import "./plant-card.styles.css";
-const PlantCard = () => {
+
+// eslint-disable-next-line react/prop-types
+const PlantCard = ({ plants }) => {
   return (
     <div className="container">
       <div className="row row-cols-1 row-cols-md-3 g-4">
