@@ -1,9 +1,10 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { categories, plants } from "../../plants-data";
-import PlantCard from "../plant-card/plant-card.components";
+import PlantCard from "../../components/plant-card/plant-card.components";
 
-const CategoryPage = () => {
+const Category = () => {
   const { categoryName } = useParams();
+  const navigate = useNavigate();
   const category = categories.find((cat) => cat.name === categoryName);
 
   if (!category) {
@@ -16,10 +17,17 @@ const CategoryPage = () => {
 
   return (
     <div>
+      <button
+        type="button"
+        className="btn btn-outline-secondary"
+        onClick={() => navigate("/plants")}
+      >
+        Back to Categories
+      </button>
       <h2>{category.name}</h2>
       <PlantCard plants={categoryPlants} />
     </div>
   );
 };
 
-export default CategoryPage;
+export default Category;
