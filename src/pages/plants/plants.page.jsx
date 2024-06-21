@@ -14,5 +14,4 @@ const Plants = () => {
     </div>
   );
 };
-console.log(Plants());
 export default Plants;
