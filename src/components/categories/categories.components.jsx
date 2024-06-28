@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { categories } from "../../plants-data";
+import { categories } from "../../data/plants-data";
 
 const Categories = () => {
   return (

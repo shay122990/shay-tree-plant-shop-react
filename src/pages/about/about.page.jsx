@@ -1,10 +1,9 @@
+import CarouselComponent from "../../components/carousel/carousel.component";
 const About = () => {
   return (
     <div>
-      <h2>About Page</h2>
-      <p>Learn more about our company.</p>
+      <CarouselComponent />
     </div>
   );
 };
-
 export default About;

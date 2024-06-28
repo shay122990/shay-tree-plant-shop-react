@@ -1,6 +1,6 @@
 import "./category.styles.css";
 import { useParams, useNavigate } from "react-router-dom";
-import { categories, plants } from "../../plants-data";
+import { categories, plants } from "../../data/plants-data";
 import PlantCard from "../../components/plant-card/plant-card.components";
 
 const Category = () => {
