@@ -12,8 +12,8 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light px-0">
-        <div className="container-fluid d-flex justify-content-between mx-5">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <div className="container-fluid d-flex justify-content-between mx-3">
           <Link className="navbar-brand" to="/">
             <img src={logo} alt="logo" />
           </Link>

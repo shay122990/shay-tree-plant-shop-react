@@ -1,5 +1,8 @@
+.navbar{
+    padding: 0 !important;
+}
 .navbar-brand img{
-    height: 100px;
+    height: 80px;
 }
 .navbar-collapse{
     flex-grow: 0 !important;
