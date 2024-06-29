@@ -1,0 +1,32 @@
+.sign-in-container{
+    width: 100%;
+    background: rgba(67, 82, 68, 0.827);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 3px solid rgb(2, 68, 2);
+    border-radius: 1rem;
+    padding: 2rem 0 ;
+}
+.sign-in-container form{
+    width: 100%;
+    padding: 1rem ;
+}
+.sign-in-button-container{
+    display: flex;
+    flex-direction: row;
+    gap:1rem;
+    padding: 1rem 0 0 0;
+}
+@media (min-width: 768px){
+    .sign-in-container {
+        width: 70%;
+    }
+}
+@media (min-width: 1420px){
+    .sign-in-container {
+        width: 50%;
+    }
+}
