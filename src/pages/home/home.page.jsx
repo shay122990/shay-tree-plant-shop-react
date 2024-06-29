@@ -9,8 +9,8 @@ const Home = () => {
           <h1>Shay&#39;s Tree</h1>
           <p className="lead">
             Transform your space with our curated selection of beautiful,
-            easy-care indoor and outdoor plants. Discover your green oasis
-            today!
+            easy-care indoor and outdoor plants. <br /> Discover your green
+            oasis today!
           </p>
           <p>
             <Link

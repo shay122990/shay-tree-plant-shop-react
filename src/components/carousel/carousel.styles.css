@@ -1,26 +1,38 @@
 .carousel-image {
-    height: 300px; 
-    object-fit: cover;
-  }
+  height: 50vh; 
+  object-fit: cover;
+  /* filter: blur(2px); */
+}
 
 .carousel-text {
-    color: white;
-    font-weight: bold;
-    font-size: 2rem;
+  color: white;
+  font-size: 2rem;
+  background: rgba(64, 74, 62, 0.5); 
+  border-radius: 0.5rem; 
+  padding: 2rem;
+  line-height: 2.8rem;
+  font-weight: bold;
+
+}
+
+@media (min-width: 768px) {
+  .carousel-image{
+    height: 70vh;
   }
-  
-  @media (min-width: 768px) {
-    .carousel-text {
-      font-size: 4rem; 
-    }
+  .carousel-text {
+    font-size: 4rem; 
+    line-height: 5rem;
   }
-  
-  @media (min-width: 1420px) {
-    .carousel-image {
-      height: 400px; 
-    }
-    .carousel-text {
-      font-size: 5rem;
-    }
+}
+
+@media (min-width: 1420px) {
+  .carousel-image {
+    height: 80vh; 
   }
-  
+  .carousel-text {
+    font-size: 5rem;
+    line-height: 6rem;
+    padding: 4rem;
+    letter-spacing: 2px;
+  }
+}
