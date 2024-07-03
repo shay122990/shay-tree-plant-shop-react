@@ -1,28 +1,33 @@
 import "./sign-in-form.styles.css";
+
 const SignInForm = () => {
   return (
     <div className="sign-in-container">
       <h1>Sign In</h1>
       <form>
         <div className="mb-3">
-          <label htmlFor="exampleInputEmail1" className="form-label">
+          <label htmlFor="email" className="form-label">
             Email address
           </label>
           <input
             type="email"
             className="form-control"
-            id="exampleInputEmail1"
+            id="email"
+            name="email"
             aria-describedby="emailHelp"
+            autoComplete="email"
           />
         </div>
         <div className="mb-3">
-          <label htmlFor="exampleInputPassword1" className="form-label">
+          <label htmlFor="password" className="form-label">
             Password
           </label>
           <input
             type="password"
             className="form-control"
-            id="exampleInputPassword1"
+            id="password"
+            name="password"
+            autoComplete="current-password"
           />
         </div>
         <div className="sign-in-button-container">
