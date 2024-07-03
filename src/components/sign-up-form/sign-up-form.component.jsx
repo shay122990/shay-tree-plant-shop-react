@@ -5,6 +5,28 @@ const SignUpForm = () => {
     <div className="sign-up-container">
       <h1>Sign Up</h1>
       <form>
+        {/* Hidden username field for accessibility */}
+        <input
+          type="text"
+          className="form-control"
+          id="hiddenUsername"
+          name="username"
+          autoComplete="username"
+          style={{ display: "none" }}
+        />
+
+        <div className="mb-3">
+          <label htmlFor="signUpName" className="form-label">
+            Full Name
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            id="signUpName"
+            name="signUpName"
+            aria-describedby="nameHelp"
+          />
+        </div>
         <div className="mb-3">
           <label htmlFor="signUpEmail" className="form-label">
             Email address
