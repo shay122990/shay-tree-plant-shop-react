@@ -10,6 +10,7 @@
     border-radius: 1rem;
     padding: 2rem 0 ;
 }
+
 .sign-in-container form{
     width: 100%;
     padding: 1rem ;
@@ -20,6 +21,7 @@
     gap:1rem;
     padding: 1rem 0 0 0;
 }
+
 @media (min-width: 768px){
     .sign-in-container {
         width: 70%;

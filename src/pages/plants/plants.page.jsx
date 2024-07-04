@@ -8,12 +8,14 @@ import plantsCarouselData from "../../data/about-carousel-data";
 const Plants = () => {
   return (
     <div className="plants-page-container">
-      <h1>Plants</h1>
+      {/* <h1>Plants</h1> */}
       <CarouselComponent carouselData={plantsCarouselData} />
-      <Routes>
-        <Route path="/" element={<Categories />} />
-        <Route path="category/:categoryName" element={<Category />} />
-      </Routes>
+      <div className="plants-page-categories">
+        <Routes>
+          <Route path="/" element={<Categories />} />
+          <Route path="category/:categoryName" element={<Category />} />
+        </Routes>
+      </div>
     </div>
   );
 };

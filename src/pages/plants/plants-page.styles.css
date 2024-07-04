@@ -1,8 +1,11 @@
 .plants-page-container{
-    padding: 0 2rem;
+   padding: 0 2rem;
    text-align: center;
    
 }
 .plants-page-container h1{
     font-size: 6rem;
+}
+.plants-page-categories{
+    padding: 4rem 0;
 }

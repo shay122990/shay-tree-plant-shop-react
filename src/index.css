@@ -10,6 +10,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #282c34;
   color: aliceblue;
+  
 }
 
 code {
@@ -19,13 +20,12 @@ code {
 img{
   height: 200px;
 }
-h1,h2,h3,h4,h5,h6{
+h2,h3,h4,h5,h6{
   margin: 0;
   padding: 0;
   text-decoration: none;
   letter-spacing: 1px;
   line-height: 1px;
-  color: rgb(64, 76, 57) !important;
 }
 a{
   text-decoration: none !important;

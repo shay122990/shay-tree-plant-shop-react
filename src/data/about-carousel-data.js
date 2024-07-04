@@ -1,24 +1,17 @@
-import img1 from "../assets/carousel-images/carousel-1.webp";
-import img2 from "../assets/carousel-images/carousel-2.jpg";
-import img3 from "../assets/carousel-images/carousel-3.jpg";
+import img1 from "../assets/carousel-images/carousel-4.webp";
+import img2 from "../assets/carousel-images/carousel-5.webp";
 const aboutCarouselData = [
   {
     id: 0,
     image: img1,
-    text: "One day delivery",
-    description: "lorem ipsum dolor sit amet, consectetur",
+    text: "Soil Variety",
+    description: "We provide the perfect soil for your plant ",
   },
   {
     id: 1,
     image: img2,
-    text: "Secure payment options",
-    description: "lorem ipsum dolor sit amet, consectetur",
-  },
-  {
-    id: 2,
-    image: img3,
-    text: "Quality products at affordable prices",
-    description: "lorem ipsum dolor sit amet, consectetur",
+    text: "Choose a pot",
+    description: "Beautiful and good drainage",
   },
 ];
 export default aboutCarouselData;
