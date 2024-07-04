@@ -1,8 +1,7 @@
-/* eslint-disable react/prop-types */
+import PropTypes from "prop-types";
 import AddToCart from "../addToCart/addToCart.component";
 import "./plant-card.styles.css";
 
-// eslint-disable-next-line react/prop-types
 const PlantCard = ({ plants }) => {
   return (
     <div className="container">
@@ -16,7 +15,7 @@ const PlantCard = ({ plants }) => {
                 alt={plant.name}
               />
               <div className="card-body">
-                <h5 className="card-title">{plant.name}</h5>
+                <h2 className="card-title">{plant.name}</h2>
                 <p className="card-text">{plant.description}</p>
                 <p className="card-text">Price: ${plant.price.toFixed(2)}</p>
                 <AddToCart />
@@ -27,6 +26,18 @@ const PlantCard = ({ plants }) => {
       </div>
     </div>
   );
+};
+
+PlantCard.propTypes = {
+  plants: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      image: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+      price: PropTypes.number.isRequired,
+    })
+  ).isRequired,
 };
 
 export default PlantCard;

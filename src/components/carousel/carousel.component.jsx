@@ -1,7 +1,7 @@
+import PropTypes from "prop-types";
 import "./carousel.styles.css";
-import carouselData from "../../data/carousel-data";
 
-const CarouselComponent = () => {
+const CarouselComponent = ({ carouselData }) => {
   return (
     <div
       id="carouselExampleIndicators"
@@ -59,6 +59,16 @@ const CarouselComponent = () => {
       </button>
     </div>
   );
+};
+
+CarouselComponent.propTypes = {
+  carouselData: PropTypes.arrayOf(
+    PropTypes.shape({
+      image: PropTypes.string.isRequired,
+      text: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+    })
+  ).isRequired,
 };
 
 export default CarouselComponent;

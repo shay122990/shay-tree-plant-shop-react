@@ -1,7 +1,7 @@
 import img1 from "../assets/carousel-images/carousel-1.webp";
 import img2 from "../assets/carousel-images/carousel-2.jpg";
 import img3 from "../assets/carousel-images/carousel-3.jpg";
-const carouselData = [
+const plantsCarouselData = [
   {
     id: 0,
     image: img1,
@@ -21,4 +21,4 @@ const carouselData = [
     description: "lorem ipsum dolor sit amet, consectetur",
   },
 ];
-export default carouselData;
+export default plantsCarouselData;
