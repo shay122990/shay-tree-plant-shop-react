@@ -1,6 +1,12 @@
 import "./sign-in-form.styles.css";
+import { signInWithGooglePopup } from "../../utils/firebase.utils";
 
 const SignInForm = () => {
+  const logGoogleUser = async () => {
+    const response = await signInWithGooglePopup();
+    console.log(response);
+  };
+
   return (
     <div className="sign-in-container">
       <h1>Sign In</h1>
@@ -34,7 +40,11 @@ const SignInForm = () => {
           <button type="submit" className="btn btn-light">
             Sign In
           </button>
-          <button type="button" className="btn btn-light">
+          <button
+            onClick={logGoogleUser}
+            type="button"
+            className="btn btn-light"
+          >
             Sign In With Google
           </button>
         </div>
