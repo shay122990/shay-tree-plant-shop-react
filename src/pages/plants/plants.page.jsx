@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Categories from "../../components/categories/categories.components";
 import Category from "../../components/category/category.component";
 import CarouselComponent from "../../components/carousel/carousel.component";
-import plantsCarouselData from "../../data/about-carousel-data";
+import plantsCarouselData from "../../data/plants-carousel-data";
 
 const Plants = () => {
   return (

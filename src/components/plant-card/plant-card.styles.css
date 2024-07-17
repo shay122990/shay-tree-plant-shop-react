@@ -1,7 +1,23 @@
 .card-img-top{
-    height: 400px;
+    height: 200px;
 }
 .card-title{
     font-weight: bold;
     color: rgb(64, 76, 57) !important;
+}
+@media (min-width: 378px) {
+    .card-img-top{
+        height: 300px;
+    }
+}
+@media (min-width: 738px) {
+    .card-img-top{
+        height: 320px;
+    }
+   
+}
+@media (min-width: 1024px) {
+    .card-img-top{
+        height: 350px;
+    }
 }

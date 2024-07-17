@@ -24,7 +24,7 @@ const Category = () => {
         className="btn btn-outline-secondary"
         onClick={() => navigate("/plants")}
       >
-        Back to Categories
+        Back to Plants
       </button>
       <PlantCard plants={categoryPlants} />
     </div>

@@ -1,6 +1,8 @@
+
 .carousel-image {
   height: 40vh; 
   object-fit: cover;
+  border-radius: 5px;
 }
 .carousel-caption{
   background: rgba(64, 74, 62, 0.5); 
