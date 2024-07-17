@@ -15,12 +15,13 @@ const app = initializeApp(firebaseConfig);
 console.log(app);
 
 //google sign in pop up
-const provider = new GoogleAuthProvider();
-provider.setCustomParameters({
+const googleProvider = new GoogleAuthProvider();
+googleProvider.setCustomParameters({
   prompt: "select_account",
 });
 export const auth = getAuth();
-export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
+export const signInWithGooglePopup = () =>
+  signInWithPopup(auth, googleProvider);
 
 //user data/ storing user data
 export const db = getFirestore();

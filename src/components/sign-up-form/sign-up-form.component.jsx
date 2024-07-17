@@ -1,20 +1,25 @@
 import "./sign-up-form.styles.css";
+import { useState } from "react";
+
+const defaultFormFields = {
+  displayName: "",
+  email: "",
+  password: "",
+  confirmPassword: "",
+};
 
 const SignUpForm = () => {
+  const [formFields, setFormFields] = useState(defaultFormFields);
+  const { displayName, email, password, confirmPassword } = formFields;
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormFields({ ...formFields, [name]: value });
+  };
   return (
     <div className="sign-up-container">
       <h1>Sign Up</h1>
       <form>
-        {/* Hidden username field for accessibility */}
-        <input
-          type="text"
-          className="form-control"
-          id="hiddenUsername"
-          name="username"
-          autoComplete="username"
-          style={{ display: "none" }}
-        />
-
         <div className="mb-3">
           <label htmlFor="signUpName" className="form-label">
             Full Name
@@ -23,8 +28,10 @@ const SignUpForm = () => {
             type="text"
             className="form-control"
             id="signUpName"
-            name="signUpName"
             aria-describedby="nameHelp"
+            onChange={handleChange}
+            name="displayName"
+            value={displayName}
           />
         </div>
         <div className="mb-3">
@@ -35,9 +42,11 @@ const SignUpForm = () => {
             type="email"
             className="form-control"
             id="signUpEmail"
-            name="signUpEmail"
             aria-describedby="emailHelp"
             autoComplete="email"
+            onChange={handleChange}
+            name="email"
+            value={email}
           />
         </div>
         <div className="mb-3">
@@ -48,8 +57,22 @@ const SignUpForm = () => {
             type="password"
             className="form-control"
             id="signUpPassword"
-            name="signUpPassword"
-            autoComplete="new-password"
+            onChange={handleChange}
+            name="password"
+            value={password}
+          />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="confirmPassword" className="form-label">
+            Confirm Password
+          </label>
+          <input
+            type="password"
+            className="form-control"
+            id="confirmPassword"
+            onChange={handleChange}
+            name="confirmPassword"
+            value={confirmPassword}
           />
         </div>
         <div className="sign-up-button-container">
