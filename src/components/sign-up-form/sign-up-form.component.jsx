@@ -4,6 +4,7 @@ import {
   createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth,
 } from "../../utils/firebase.utils";
+import FormInput from "../form-input/form-input.component";
 
 const defaultFormFields = {
   displayName: "",
@@ -58,64 +59,42 @@ const SignUpForm = () => {
     <div className="sign-up-container">
       <h1>Sign Up</h1>
       <form onSubmit={handleSubmit}>
-        <div className="mb-3">
-          <label htmlFor="signUpName" className="form-label">
-            Full Name
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            id="signUpName"
-            aria-describedby="nameHelp"
-            onChange={handleChange}
-            name="displayName"
-            value={displayName}
-            autoComplete="name"
-          />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="signUpEmail" className="form-label">
-            Email address
-          </label>
-          <input
-            type="email"
-            className="form-control"
-            id="signUpEmail"
-            aria-describedby="emailHelp"
-            autoComplete="email"
-            onChange={handleChange}
-            name="email"
-            value={email}
-          />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="signUpPassword" className="form-label">
-            Password
-          </label>
-          <input
-            type="password"
-            className="form-control"
-            id="signUpPassword"
-            onChange={handleChange}
-            name="password"
-            value={password}
-            autoComplete="new-password"
-          />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="confirmPassword" className="form-label">
-            Confirm Password
-          </label>
-          <input
-            type="password"
-            className="form-control"
-            id="confirmPassword"
-            onChange={handleChange}
-            name="confirmPassword"
-            value={confirmPassword}
-            autoComplete="new-password"
-          />
-        </div>
+        <FormInput
+          label="Full Name"
+          type="text"
+          name="displayName"
+          value={displayName}
+          onChange={handleChange}
+          autoComplete="name"
+          required
+        />
+        <FormInput
+          label="Email address"
+          type="email"
+          name="email"
+          value={email}
+          onChange={handleChange}
+          autoComplete="email"
+          required
+        />
+        <FormInput
+          label="Password"
+          type="password"
+          name="password"
+          value={password}
+          onChange={handleChange}
+          autoComplete="new-password"
+          required
+        />
+        <FormInput
+          label="Confirm Password"
+          type="password"
+          name="confirmPassword"
+          value={confirmPassword}
+          onChange={handleChange}
+          autoComplete="new-password"
+          required
+        />
         <div className="sign-up-button-container">
           <button type="submit" className="btn btn-light">
             Sign Up
