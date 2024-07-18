@@ -1,0 +1,11 @@
+/* Override styles for the google sign-in button */
+.google-sign-in {
+    background-color: aqua !important;
+    
+  }
+  
+  /* .google-sign-in:hover {
+    background-color: #00ced1 !important;
+    color: white;
+  } */
+  

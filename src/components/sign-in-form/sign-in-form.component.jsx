@@ -4,6 +4,7 @@ import {
   createUserDocumentFromAuth,
 } from "../../utils/firebase.utils";
 import FormInput from "../form-input/form-input.component";
+import Button from "../button/button.component";
 
 const SignInForm = () => {
   const logGoogleUser = async () => {
@@ -34,16 +35,12 @@ const SignInForm = () => {
           required
         />
         <div className="sign-in-button-container">
-          <button type="submit" className="btn btn-light">
+          <Button type="submit" buttonType="generic">
             Sign In
-          </button>
-          <button
-            onClick={logGoogleUser}
-            type="button"
-            className="btn btn-light"
-          >
+          </Button>
+          <Button type="submit" buttonType="google" onClick={logGoogleUser}>
             Sign In With Google
-          </button>
+          </Button>
         </div>
       </form>
     </div>

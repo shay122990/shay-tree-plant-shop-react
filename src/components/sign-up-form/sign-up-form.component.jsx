@@ -5,6 +5,7 @@ import {
   createUserDocumentFromAuth,
 } from "../../utils/firebase.utils";
 import FormInput from "../form-input/form-input.component";
+import Button from "../button/button.component";
 
 const defaultFormFields = {
   displayName: "",
@@ -96,9 +97,9 @@ const SignUpForm = () => {
           required
         />
         <div className="sign-up-button-container">
-          <button type="submit" className="btn btn-light">
+          <Button type="submit" buttonType="generic">
             Sign Up
-          </button>
+          </Button>
         </div>
       </form>
     </div>

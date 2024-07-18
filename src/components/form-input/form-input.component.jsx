@@ -1,4 +1,3 @@
-import "./form-input.styles.scss";
 import PropTypes from "prop-types";
 
 const FormInput = ({ label, ...otherProps }) => {

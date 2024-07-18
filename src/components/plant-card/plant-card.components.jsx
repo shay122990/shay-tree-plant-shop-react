@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
-import AddToCart from "../addToCart/addToCart.component";
 import "./plant-card.styles.css";
+import Button from "../button/button.component";
 
 const PlantCard = ({ plants }) => {
   return (
@@ -18,7 +18,7 @@ const PlantCard = ({ plants }) => {
                 <h2 className="card-title">{plant.name}</h2>
                 <p className="card-text">{plant.description}</p>
                 <p className="card-text">Price: ${plant.price.toFixed(2)}</p>
-                <AddToCart />
+                <Button buttonType="cart">Add To Cart</Button>
               </div>
             </div>
           </div>
