@@ -3,6 +3,7 @@ import {
   signInWithGooglePopup,
   createUserDocumentFromAuth,
 } from "../../utils/firebase.utils";
+import FormInput from "../form-input/form-input.component";
 
 const SignInForm = () => {
   const logGoogleUser = async () => {
@@ -15,31 +16,23 @@ const SignInForm = () => {
     <div className="sign-in-container">
       <h1>Sign In</h1>
       <form>
-        <div className="mb-3">
-          <label htmlFor="email" className="form-label">
-            Email address
-          </label>
-          <input
-            type="email"
-            className="form-control"
-            id="email"
-            name="email"
-            aria-describedby="emailHelp"
-            autoComplete="email"
-          />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="password" className="form-label">
-            Password
-          </label>
-          <input
-            type="password"
-            className="form-control"
-            id="password"
-            name="password"
-            autoComplete="current-password"
-          />
-        </div>
+        <FormInput
+          label="Email address"
+          type="email"
+          id="email"
+          name="email"
+          aria-describedby="emailHelp"
+          autoComplete="email"
+          required
+        />
+        <FormInput
+          label="Password"
+          type="password"
+          id="password"
+          name="password"
+          autoComplete="current-password"
+          required
+        />
         <div className="sign-in-button-container">
           <button type="submit" className="btn btn-light">
             Sign In
