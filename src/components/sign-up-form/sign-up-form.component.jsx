@@ -1,9 +1,10 @@
 import "./sign-up-form.styles.css";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import {
   createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth,
 } from "../../utils/firebase.utils";
+import { UserContext } from "../../contexts/user.context";
 import FormInput from "../form-input/form-input.component";
 import Button from "../button/button.component";
 
@@ -15,8 +16,12 @@ const defaultFormFields = {
 };
 
 const SignUpForm = () => {
+  console.log("hit test render");
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { displayName, email, password, confirmPassword } = formFields;
+
+  const val = useContext(UserContext);
+  console.log(val + "this is the rerender after we hooke up to context");
 
   const resetFormFields = () => {
     setFormFields(defaultFormFields);

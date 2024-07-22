@@ -1,9 +1,12 @@
 import "./navbar.styles.css";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { UserContext } from "../../contexts/user.context";
 import { Link, Outlet } from "react-router-dom";
 import logo from "../../assets/shays-tree.jpg";
 
 const Navbar = () => {
+  const { currentUser } = useContext(UserContext);
+  console.log(currentUser);
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const toggleDropdown = () => {
