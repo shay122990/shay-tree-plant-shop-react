@@ -1,102 +1,65 @@
 import "./navbar.styles.css";
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import { UserContext } from "../../contexts/user.context";
+import { signOutUser } from "../../utils/firebase.utils";
 import { Link, Outlet } from "react-router-dom";
 import logo from "../../assets/shays-tree.jpg";
 
 const Navbar = () => {
-  const { currentUser } = useContext(UserContext);
-  console.log(currentUser);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-
-  const toggleDropdown = () => {
-    setDropdownOpen(!dropdownOpen);
+  const { currentUser, setCurrentUser } = useContext(UserContext);
+  const signOutHandler = async () => {
+    await signOutUser();
+    setCurrentUser(null);
   };
-
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid d-flex justify-content-between mx-3">
           <Link className="navbar-brand" to="/">
-            <img src={logo} alt="logo" />
+            <img src={logo} alt="Shay's Tree Logo" />
           </Link>
           <button
             className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
-            data-bs-target="#navbarNavDropdown"
-            aria-controls="navbarNavDropdown"
-            aria-expanded="false"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
             aria-label="Toggle navigation"
-            onClick={toggleDropdown}
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div
-            className={`collapse navbar-collapse ${dropdownOpen ? "show" : ""}`}
-            id="navbarNavDropdown"
-          >
+          <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link
-                  className="nav-link"
-                  to="/"
-                  onClick={() => setDropdownOpen(false)}
-                >
+                <Link className="nav-link" to="/">
                   Home
                 </Link>
               </li>
               <li className="nav-item">
-                <Link
-                  className="nav-link"
-                  to="/plants"
-                  onClick={() => setDropdownOpen(false)}
-                >
+                <Link className="nav-link" to="/plants">
                   Plants
                 </Link>
               </li>
               <li className="nav-item">
-                <Link
-                  className="nav-link"
-                  to="/about"
-                  onClick={() => setDropdownOpen(false)}
-                >
+                <Link className="nav-link" to="/about">
                   About
                 </Link>
               </li>
-              <li className="nav-item dropdown">
-                <Link
-                  className="nav-link dropdown-toggle"
-                  to="#"
-                  id="navbarDropdownMenuLink"
-                  role="button"
-                  onClick={toggleDropdown}
-                >
-                  Show more
+              {currentUser ? (
+                <span className="nav-link" onClick={signOutHandler}>
+                  Sign Out
+                </span>
+              ) : (
+                <li className="nav-item">
+                  <Link className="nav-link" to="/auth">
+                    Sign In
+                  </Link>
+                </li>
+              )}
+              <li className="nav-item">
+                <Link className="nav-link" to="/cart">
+                  Cart
                 </Link>
-                <ul
-                  className={`dropdown-menu ${dropdownOpen ? "show" : ""}`}
-                  aria-labelledby="navbarDropdownMenuLink"
-                >
-                  <li>
-                    <Link
-                      className="dropdown-item"
-                      to="/sign-in"
-                      onClick={() => setDropdownOpen(false)}
-                    >
-                      Sign In
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      className="dropdown-item"
-                      to="/cart"
-                      onClick={() => setDropdownOpen(false)}
-                    >
-                      Cart
-                    </Link>
-                  </li>
-                </ul>
               </li>
             </ul>
           </div>

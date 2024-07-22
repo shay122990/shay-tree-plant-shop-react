@@ -3,8 +3,8 @@ import Navbar from "./components/navbar/navbar.component";
 import Home from "./pages/home/home.page";
 import Plants from "./pages/plants/plants.page";
 import About from "./pages/about/about.page";
-import SignIn from "./pages/sign-in/sign-in.page";
 import Cart from "./pages/cart/cart.page";
+import AuthenticationPage from "./pages/authentication/authentication.page";
 
 const App = () => {
   return (
@@ -14,7 +14,7 @@ const App = () => {
           <Route index element={<Home />} />
           <Route path="plants/*" element={<Plants />} />
           <Route path="about" element={<About />} />
-          <Route path="sign-in" element={<SignIn />} />
+          <Route path="auth" element={<AuthenticationPage />} />
           <Route path="cart" element={<Cart />} />
         </Route>
       </Routes>

@@ -3,7 +3,6 @@ import { useState, useContext } from "react";
 import { UserContext } from "../../contexts/user.context";
 import {
   signInWithGooglePopup,
-  createUserDocumentFromAuth,
   signInAuthUserWithEmailAndPassword,
 } from "../../utils/firebase.utils";
 import FormInput from "../form-input/form-input.component";
@@ -13,9 +12,8 @@ const defaultFormFields = {
   email: "",
   password: "",
 };
-const SignInForm = () => {
-  console.log("hit test render signin cimponent");
 
+const SignInForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
 
@@ -24,10 +22,14 @@ const SignInForm = () => {
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
   };
+
   const signInWithGoogle = async () => {
-    const { user } = await signInWithGooglePopup();
-    const userDocReference = await createUserDocumentFromAuth(user);
-    console.log(userDocReference);
+    try {
+      const { user } = await signInWithGooglePopup();
+      setCurrentUser(user);
+    } catch (error) {
+      console.error("Error signing in with Google:", error);
+    }
   };
 
   const handleSubmit = async (event) => {
@@ -38,26 +40,24 @@ const SignInForm = () => {
         email,
         password
       );
-      setCurrentUser(user);
-      console.log(user);
       resetFormFields();
+      setCurrentUser(user);
     } catch (error) {
       switch (error.code) {
         case "auth/wrong-password":
-          alert("incorrect password for email");
+          alert("Incorrect password for email");
           break;
         case "auth/user-not-found":
-          alert("no user associated with this email");
+          alert("No user associated with this email");
           break;
         default:
-          console.log(error);
+          console.error("Error during sign-in:", error);
       }
     }
   };
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-
     setFormFields({ ...formFields, [name]: value });
   };
 
@@ -73,6 +73,7 @@ const SignInForm = () => {
           aria-describedby="emailHelp"
           autoComplete="email"
           required
+          value={email}
           onChange={handleChange}
         />
         <FormInput
@@ -82,6 +83,7 @@ const SignInForm = () => {
           name="password"
           autoComplete="current-password"
           required
+          value={password}
           onChange={handleChange}
         />
         <div className="sign-in-button-container">
