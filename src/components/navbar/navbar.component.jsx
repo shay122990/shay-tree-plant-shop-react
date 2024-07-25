@@ -6,11 +6,8 @@ import { Link, Outlet } from "react-router-dom";
 import logo from "../../assets/shays-tree.jpg";
 
 const Navbar = () => {
-  const { currentUser, setCurrentUser } = useContext(UserContext);
-  const signOutHandler = async () => {
-    await signOutUser();
-    setCurrentUser(null);
-  };
+  const { currentUser } = useContext(UserContext);
+
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -46,7 +43,7 @@ const Navbar = () => {
                 </Link>
               </li>
               {currentUser ? (
-                <span className="nav-link" onClick={signOutHandler}>
+                <span className="nav-link" onClick={signOutUser}>
                   Sign Out
                 </span>
               ) : (
