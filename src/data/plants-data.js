@@ -361,4 +361,9 @@ export const categories = [
     plantIds: [1, 3, 7, 8, 20, 22, 26],
     image: img12,
   },
+  {
+    name: "Pet Friendly",
+    plantIds: [1, 3, 7, 10, 13, 16, 19, 24, 30],
+    image: img7,
+  },
 ];

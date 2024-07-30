@@ -1,7 +1,10 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { categories } from "../../data/plants-data";
+import { ProductsContext } from "../../contexts/product.context";
 
 const Categories = () => {
+  const { categories } = useContext(ProductsContext);
+
   return (
     <div className="container">
       <div className="row row-cols-1 row-cols-md-3 g-4">
