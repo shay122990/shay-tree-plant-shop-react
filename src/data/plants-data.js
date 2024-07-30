@@ -343,7 +343,7 @@ export const categories = [
   },
   {
     name: "Indoor",
-    plantIds: plants.map((plant) => plant.id), // All plants are considered indoor
+    plantIds: plants.map((plant) => plant.id),
     image: img14,
   },
   {

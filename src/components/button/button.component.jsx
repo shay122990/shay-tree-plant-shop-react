@@ -20,7 +20,7 @@ const Button = ({ children, buttonType, ...otherProps }) => {
 
 Button.propTypes = {
   children: PropTypes.node.isRequired,
-  buttonType: PropTypes.oneOf(["google", "generic"]).isRequired,
+  buttonType: PropTypes.oneOf(["google", "generic", "cart"]).isRequired,
 };
 
 export default Button;
