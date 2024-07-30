@@ -1,15 +1,22 @@
 import { createContext, useState } from "react";
 import PropTypes from "prop-types";
-import PLANTS from "../data/plants-data";
+import {
+  plants as initialPlants,
+  categories as initialCategories,
+} from "../data/plants-data";
 
 export const ProductsContext = createContext({
-  products: [],
-  setProducts: () => {},
+  plants: [],
+  categories: [],
+  setPlants: () => {},
+  setCategories: () => {},
 });
 
 export const ProductsProvider = ({ children }) => {
-  const [products] = useState(PLANTS);
-  const value = { products };
+  const [plants, setPlants] = useState(initialPlants);
+  const [categories, setCategories] = useState(initialCategories);
+
+  const value = { plants, categories, setPlants, setCategories };
 
   return (
     <ProductsContext.Provider value={value}>
