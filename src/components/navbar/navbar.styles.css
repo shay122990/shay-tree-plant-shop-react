@@ -8,11 +8,6 @@
     flex-grow: 0 !important;
 }
 
-.shopping-cart{
-    width: 24px;
-    height: 24px;
-    margin: 0.4rem 0 0 0.4rem;
-}
 @media (min-width: 768px) {
     .navbar{
         padding: 0 4rem !important;

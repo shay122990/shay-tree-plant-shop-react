@@ -4,7 +4,7 @@ import { UserContext } from "../../contexts/user.context";
 import { signOutUser } from "../../utils/firebase.utils";
 import { Link, Outlet } from "react-router-dom";
 import logo from "../../assets/shays-tree.jpg";
-import ShopIcon from "../../assets/shopping-bag.svg";
+import CartIcon from "../cart-icon/cart-icon.component";
 const Navbar = () => {
   const { currentUser } = useContext(UserContext);
 
@@ -53,14 +53,7 @@ const Navbar = () => {
                   </Link>
                 </li>
               )}
-              <li className="nav-item">
-                <Link className="nav-link cart" to="/cart">
-                  Cart
-                </Link>
-              </li>
-              <li className="nav-item">
-                <img className="shopping-cart" src={ShopIcon} alt={ShopIcon} />
-              </li>
+              <CartIcon />
             </ul>
           </div>
         </div>
