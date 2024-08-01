@@ -5,6 +5,7 @@ import { signOutUser } from "../../utils/firebase.utils";
 import { Link, Outlet } from "react-router-dom";
 import logo from "../../assets/shays-tree.jpg";
 import CartIcon from "../cart-icon/cart-icon.component";
+import CartDropdown from "../cart-dropdown/cart-dropdown.component";
 const Navbar = () => {
   const { currentUser } = useContext(UserContext);
 
@@ -56,6 +57,7 @@ const Navbar = () => {
               <CartIcon />
             </ul>
           </div>
+          <CartDropdown />
         </div>
       </nav>
       <Outlet />
