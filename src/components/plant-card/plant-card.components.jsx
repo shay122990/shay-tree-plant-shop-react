@@ -1,14 +1,24 @@
 import PropTypes from "prop-types";
+import { useContext, useState } from "react";
 import "./plant-card.styles.css";
-import { useContext } from "react";
 import { CartContext } from "../../contexts/cart.context";
 import Button from "../button/button.component";
 
 const PlantCard = ({ plants }) => {
   const { addItemToCart } = useContext(CartContext);
 
+  // Local state to manage button text
+  const [buttonText, setButtonText] = useState("Add To Cart");
+
+  // Function to handle adding item to cart
   const handleAddToCart = (plant) => {
     addItemToCart(plant);
+    setButtonText("Item added");
+
+    // Set timeout to revert button text after 2 seconds
+    setTimeout(() => {
+      setButtonText("Add To Cart");
+    }, 2000); // Adjust the timeout duration as needed
   };
 
   return (
@@ -30,7 +40,7 @@ const PlantCard = ({ plants }) => {
                   buttonType="cart"
                   onClick={() => handleAddToCart(plant)}
                 >
-                  Add To Cart
+                  {buttonText}
                 </Button>
               </div>
             </div>
