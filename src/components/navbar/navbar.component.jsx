@@ -1,6 +1,7 @@
 import "./navbar.styles.css";
 import { useContext } from "react";
 import { UserContext } from "../../contexts/user.context";
+import { CartContext } from "../../contexts/cart.context";
 import { signOutUser } from "../../utils/firebase.utils";
 import { Link, Outlet } from "react-router-dom";
 import logo from "../../assets/shays-tree.jpg";
@@ -8,7 +9,7 @@ import CartIcon from "../cart-icon/cart-icon.component";
 import CartDropdown from "../cart-dropdown/cart-dropdown.component";
 const Navbar = () => {
   const { currentUser } = useContext(UserContext);
-
+  const { isCartOpen } = useContext(CartContext);
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -57,7 +58,7 @@ const Navbar = () => {
               <CartIcon />
             </ul>
           </div>
-          <CartDropdown />
+          {isCartOpen && <CartDropdown />}
         </div>
       </nav>
       <Outlet />
