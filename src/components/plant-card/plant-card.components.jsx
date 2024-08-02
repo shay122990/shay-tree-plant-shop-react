@@ -30,7 +30,7 @@ const PlantCard = ({ plant }) => {
       <img src={plant.image} className="card-img-top" alt={plant.name} />
       <div className="card-body">
         <h2 className="card-title">{plant.name}</h2>
-        <p className="card-text">{plant.description}</p>
+        <p className="card-text h-25">{plant.description}</p>
         <p className="card-text">Price: ${plant.price.toFixed(2)}</p>
         <div className="d-flex flex-column">
           <Button buttonType="cart" onClick={handleAddToCart}>
