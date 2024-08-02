@@ -1,4 +1,4 @@
-import "./about-page.styles.css";
+import "./about.page.styles.css";
 import CarouselComponent from "../../components/carousel/carousel.component";
 import aboutCarouselData from "../../data/about-carousel-data";
 

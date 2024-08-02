@@ -7,8 +7,13 @@ import CartItem from "../cart-item/cart-item.component";
 import Button from "../button/button.component";
 
 const CartDropdown = () => {
-  const { cartItems } = useContext(CartContext);
+  const { cartItems, cartTotal } = useContext(CartContext);
   const navigate = useNavigate();
+
+  const handleGoToCheckout = () => {
+    navigate("/checkout");
+  };
+
   return (
     <div className="cart-dropdown-container">
       <div className="cart-items">
@@ -17,8 +22,9 @@ const CartDropdown = () => {
         ) : (
           cartItems.map((item) => <CartItem key={item.id} cartItem={item} />)
         )}
+        <span> Total: ${cartTotal}</span>
       </div>
-      <Button buttonType="cart" onClick={navigate("/checkout")}>
+      <Button buttonType="cart" onClick={handleGoToCheckout}>
         Go To Checkout
       </Button>
     </div>

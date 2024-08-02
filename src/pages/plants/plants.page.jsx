@@ -1,4 +1,4 @@
-import "./plants-page.styles.css";
+import "./plants.page.styles.css";
 import { Routes, Route } from "react-router-dom";
 import Categories from "../../components/categories/categories.components";
 import Category from "../../components/category/category.component";

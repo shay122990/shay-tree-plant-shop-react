@@ -6,9 +6,11 @@ import { CartContext } from "../../contexts/cart.context";
 import Button from "../button/button.component";
 
 const PlantCard = ({ plant }) => {
-  const navigate = useNavigate();
   const { addItemToCart } = useContext(CartContext);
-
+  const navigate = useNavigate();
+  const handleGoToCheckout = () => {
+    navigate("/checkout");
+  };
   const [buttonState, setButtonState] = useState({
     buttonText: "Add To Cart",
     showCheckoutButton: false,
@@ -37,7 +39,7 @@ const PlantCard = ({ plant }) => {
             {buttonState.buttonText}
           </Button>
           {buttonState.showCheckoutButton && (
-            <Button buttonType="cart" onClick={() => navigate("/checkout")}>
+            <Button buttonType="cart" onClick={handleGoToCheckout}>
               Checkout
             </Button>
           )}
