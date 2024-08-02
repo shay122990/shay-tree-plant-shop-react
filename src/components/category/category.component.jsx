@@ -1,8 +1,9 @@
+import "./category.styles.css";
+
 import { useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { ProductsContext } from "../../contexts/product.context";
 import PlantCard from "../../components/plant-card/plant-card.components";
-import "./category.styles.css";
 
 const Category = () => {
   const { categoryName } = useParams();
@@ -29,7 +30,13 @@ const Category = () => {
       >
         Back to Plants
       </button>
-      <PlantCard plants={categoryPlants} />
+      <div className="row row-cols-1 row-cols-md-3 g-4">
+        {categoryPlants.map((plant) => (
+          <div key={plant.id} className="col">
+            <PlantCard plant={plant} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

@@ -1,4 +1,7 @@
 /* Override styles for the google sign-in button */
+.btn{
+  margin: 5px !important
+}
 .google-sign-in {
     background-color: aqua !important;
     

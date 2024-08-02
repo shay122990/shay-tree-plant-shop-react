@@ -3,6 +3,7 @@
 }
 .navbar-brand img{
     height: 80px;
+    width: 80px;
 }
 .navbar-collapse{
     flex-grow: 0 !important;
