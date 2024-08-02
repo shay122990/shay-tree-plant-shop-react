@@ -1,4 +1,4 @@
-import "./plants.page.styles.css";
+import "./plants-page.styles.css";
 import { Routes, Route } from "react-router-dom";
 import Categories from "../../components/categories/categories.components";
 import Category from "../../components/category/category.component";
@@ -8,7 +8,6 @@ import plantsCarouselData from "../../data/plants-carousel-data";
 const Plants = () => {
   return (
     <div className="plants-page-container">
-      {/* <h1>Plants</h1> */}
       <CarouselComponent carouselData={plantsCarouselData} />
       <div className="plants-page-categories">
         <Routes>
