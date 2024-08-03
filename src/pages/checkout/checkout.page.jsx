@@ -4,11 +4,27 @@ import { CartContext } from "../../contexts/cart.context";
 import logo from "../../assets/shays-tree.jpg";
 
 const Checkout = () => {
-  const { cartTotal, cartItems, addItemToCart, removeItemFromCart } =
-    useContext(CartContext);
+  const {
+    cartTotal,
+    cartItems,
+    addItemToCart,
+    removeItemFromCart,
+    clearItemFromCart,
+  } = useContext(CartContext);
 
+  const handleAddItemToCart = (cartItem) => {
+    addItemToCart(cartItem);
+  };
+
+  const handleRemoveItemFromCart = (cartItem) => {
+    removeItemFromCart(cartItem);
+  };
+
+  const handleClearItemFromCart = (cartItem) => {
+    clearItemFromCart(cartItem);
+  };
   return (
-    <main>
+    <main className="container-fluid d-flex flex-column justify-content-center align-items-center  px-1">
       <div className="py-5 text-center">
         <img src={logo} className="checkout-img d-block mx-auto mb-4" />
         <h2>Checkout Form</h2>
@@ -16,39 +32,35 @@ const Checkout = () => {
           Please fill our the form to receive your green friends!{" "}
         </p>
       </div>
-      <div>
-        <span>Your Cart</span>
+      <div className="container d-flex flex-column w-sm-100 w-md-75  border border-secondary rounded">
+        <h6>Your Cart</h6>
         {cartItems.map((cartItem) => (
-          <div className="col-md-5 col-lg-4 order-md-last" key={cartItem.id}>
-            <h4 className="d-flex justify-content-between align-items-center mb-3">
-              <span
-                onClick={() => {
-                  addItemToCart(cartItem);
-                }}
-              >
-                add
-              </span>
-              <span
-                onClick={() => {
-                  removeItemFromCart(cartItem);
-                }}
-              >
-                remove
-              </span>
-              <span className="badge bg-secondary rounded-pill">
-                {cartItem.quantity}
-              </span>
-            </h4>
-            <ul className="list-group mb-3">
-              <li className="list-group-item d-flex justify-content-between lh-sm">
-                <h6 className="my-0">{cartItem.name}</h6>
+          <div key={cartItem.id}>
+            <ul
+              className="list-group d-flex justify-content-between align-items-center mb-3"
+              key={cartItem.id}
+            >
+              <li className="list-group-item d-flex justify-content-between lh-sm w-100">
+                <h6 className="my-0 w-50">{cartItem.name}</h6>
                 <small>${cartItem.price}</small>
+                <span onClick={() => handleAddItemToCart(cartItem)}>
+                  <i className="bi bi-plus"></i>
+                </span>
+                <span onClick={() => handleRemoveItemFromCart(cartItem)}>
+                  <i className="bi bi-dash"></i>
+                </span>
+                <span onClick={() => handleClearItemFromCart(cartItem)}>
+                  <i className="bi bi-x"></i>
+                </span>
+                <span className="badge bg-secondary rounded-pill">
+                  {cartItem.quantity}
+                </span>
               </li>
             </ul>
           </div>
         ))}
         <span>
-          <span>Total: ${cartTotal}</span>
+          <h6>Total: ${cartTotal}</h6>
         </span>
       </div>
     </main>
