@@ -7,9 +7,9 @@ import plantsCarouselData from "../../data/plants-carousel-data";
 
 const Plants = () => {
   return (
-    <div className="plants-page-container">
+    <div className="container px-1">
       <CarouselComponent carouselData={plantsCarouselData} />
-      <div className="plants-page-categories">
+      <div className="py-5">
         <Routes>
           <Route path="/" element={<Categories />} />
           <Route path="category/:categoryName" element={<Category />} />

@@ -32,9 +32,8 @@ const CarouselComponent = ({ carouselData }) => {
               className="d-block w-100 carousel-image"
               alt={item.text}
             />
-            <div className="carousel-caption">
-              <p className="carousel-text">{item.text}</p>
-              <p className="carousel-description">{item.description}</p>
+            <div className="carousel-caption px-1 width-100">
+              <p className="carousel-text m-0">{item.text}</p>
             </div>
           </div>
         ))}

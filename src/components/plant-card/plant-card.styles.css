@@ -1,23 +1,25 @@
-.card-img-top{
+.card-img-top {
     height: 200px;
 }
+
 .card-title{
     font-weight: bold;
     color: rgb(64, 76, 57) !important;
+    font-size: 20px;
 }
-@media (min-width: 378px) {
-    .card-img-top{
-        height: 300px;
-    }
-}
+
 @media (min-width: 738px) {
     .card-img-top{
-        height: 320px;
+        height: 300px;
     }
    
 }
 @media (min-width: 1024px) {
+    
     .card-img-top{
-        height: 350px;
+        height: 400px;
     }
+    .card-text{
+        height: 60px;
+}
 }

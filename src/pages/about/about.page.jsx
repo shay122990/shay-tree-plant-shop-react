@@ -4,7 +4,7 @@ import aboutCarouselData from "../../data/about-carousel-data";
 
 const About = () => {
   return (
-    <div className="about-page-container">
+    <div className="container">
       <CarouselComponent carouselData={aboutCarouselData} />
     </div>
   );
