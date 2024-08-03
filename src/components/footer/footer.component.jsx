@@ -1,3 +1,4 @@
+import "./footer.styles.css";
 import logo from "../../assets/shays-tree.jpg";
 const Footer = () => {
   return (
@@ -8,7 +9,7 @@ const Footer = () => {
         href="/"
         className="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none"
       >
-        <img src={logo} alt={logo} />
+        <img src={logo} alt={logo} className="footer-img" />
       </a>
 
       <ul className="nav col-md-4 justify-content-end">
