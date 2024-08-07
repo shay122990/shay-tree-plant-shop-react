@@ -2,3 +2,7 @@
     width: 4rem;
     height: 4rem;
 }
+.cart, .total{
+    font-size: 18px;
+    font-weight: bold;
+}

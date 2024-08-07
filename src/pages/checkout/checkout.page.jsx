@@ -32,8 +32,8 @@ const Checkout = () => {
           Please fill our the form to receive your green friends!{" "}
         </p>
       </div>
-      <div className="container d-flex flex-column w-sm-100 w-md-75  border border-secondary rounded">
-        <h6>Your Cart</h6>
+      <div className="container d-flex flex-column w-sm-100 w-md-75 px-5 border border-secondary rounded">
+        <h6 className="cart">Your Cart</h6>
         {cartItems.map((cartItem) => (
           <div key={cartItem.id}>
             <ul
@@ -60,7 +60,7 @@ const Checkout = () => {
           </div>
         ))}
         <span>
-          <h6>Total: ${cartTotal}</h6>
+          <h6 className="total">Total: ${cartTotal}</h6>
         </span>
       </div>
     </main>
