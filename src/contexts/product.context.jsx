@@ -1,10 +1,7 @@
 import { createContext, useState } from "react";
 import PropTypes from "prop-types";
-import {
-  plants as initialPlants,
-  categories as initialCategories,
-} from "../data/plants-data";
-
+import { plants as initialPlants } from "../data/plants-data";
+import { categories as initialCategories } from "../data/categories-data";
 export const ProductsContext = createContext({
   plants: [],
   categories: [],
