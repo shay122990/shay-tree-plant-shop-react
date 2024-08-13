@@ -22,7 +22,7 @@ const Category = () => {
 
   return (
     <div className="container category-container">
-      <div className="d-flex justify-content-between w-100 align-items-center py-2">
+      <div className="d-flex justify-content-between w-100 align-items-center py-2 ">
         <h2 className="m-2">{category.name}</h2>
         <button
           type="button"
@@ -32,13 +32,20 @@ const Category = () => {
           Back to Plants
         </button>
       </div>
-      <div className="row row-cols-1 row-cols-md-3 g-4">
+      <div className="row row-cols-2 row-cols-md-3 g-4">
         {categoryPlants.map((plant) => (
           <div key={plant.id} className="col">
             <PlantCard plant={plant} />
           </div>
         ))}
       </div>
+      <button
+        type="button"
+        className="btn btn-outline-secondary m-2"
+        onClick={() => navigate("/plants")}
+      >
+        Back to Plants
+      </button>
     </div>
   );
 };

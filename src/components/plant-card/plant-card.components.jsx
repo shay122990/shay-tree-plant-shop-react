@@ -30,8 +30,8 @@ const PlantCard = ({ plant }) => {
   return (
     <div className="card h-200 my-10">
       <img src={plant.image} className="card-img-top" alt={plant.name} />
-      <div className="card-body p-10">
-        <h2 className="card-title m-2">{plant.name}</h2>
+      <div className="card-body">
+        <h2 className="card-title">{plant.name}</h2>
         <p className="card-text">{plant.description}</p>
         <p className="card-description">Price: ${plant.price.toFixed(2)}</p>
         <div className="d-flex flex-column">

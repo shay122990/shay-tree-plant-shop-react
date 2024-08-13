@@ -7,7 +7,7 @@ import plantsCarouselData from "../../data/plants-carousel-data";
 
 const Plants = () => {
   return (
-    <div className="container px-1">
+    <div className="container px-2">
       <CarouselComponent carouselData={plantsCarouselData} />
       <div className="py-5">
         <Routes>

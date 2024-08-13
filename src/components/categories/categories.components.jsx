@@ -1,3 +1,4 @@
+import "./categories.styles.css";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { ProductsContext } from "../../contexts/product.context";
@@ -7,7 +8,7 @@ const Categories = () => {
 
   return (
     <div className="container">
-      <div className="row row-cols-1 row-cols-md-3 g-4">
+      <div className="row row-cols-2 row-cols-md-3 g-4">
         {categories.map((category) => (
           <div key={category.name} className="col">
             <div className="card h-100">
@@ -18,7 +19,7 @@ const Categories = () => {
                   alt={category.name}
                 />
                 <div className="card-body">
-                  <h5 className="card-title">{category.name}</h5>
+                  <h5 className="category-card-title">{category.name}</h5>
                 </div>
               </Link>
             </div>
