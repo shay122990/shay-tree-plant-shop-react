@@ -6,6 +6,7 @@ import {
 } from "../../utils/firebase.utils";
 import FormInput from "../form-input/form-input.component";
 import Button from "../button/button.component";
+import { useNavigate } from "react-router-dom";
 
 const defaultFormFields = {
   displayName: "",
@@ -16,7 +17,9 @@ const defaultFormFields = {
 
 const SignUpForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
+  const [signUpSuccess, setSignUpSuccess] = useState(false);
   const { displayName, email, password, confirmPassword } = formFields;
+  const navigate = useNavigate();
 
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
@@ -38,6 +41,7 @@ const SignUpForm = () => {
         password
       );
       await createUserDocumentFromAuth(user, { displayName });
+      setSignUpSuccess(true);
       resetFormFields();
     } catch (error) {
       if (error.code === "auth/email-already-in-use") {
@@ -55,52 +59,68 @@ const SignUpForm = () => {
     setFormFields({ ...formFields, [name]: value });
   };
 
+  const handleRedirect = () => {
+    navigate("/plants");
+  };
+
   return (
     <div className="sign-up-container">
-      <h1>Sign Up</h1>
-      <form onSubmit={handleSubmit}>
-        <FormInput
-          label="Full Name"
-          type="text"
-          name="displayName"
-          value={displayName}
-          onChange={handleChange}
-          autoComplete="name"
-          required
-        />
-        <FormInput
-          label="Email address"
-          type="email"
-          name="email"
-          value={email}
-          onChange={handleChange}
-          autoComplete="email"
-          required
-        />
-        <FormInput
-          label="Password"
-          type="password"
-          name="password"
-          value={password}
-          onChange={handleChange}
-          autoComplete="new-password"
-          required
-        />
-        <FormInput
-          label="Confirm Password"
-          type="password"
-          name="confirmPassword"
-          value={confirmPassword}
-          onChange={handleChange}
-          autoComplete="new-password"
-          required
-        />
-        <div className="sign-up-button-container">
-          <Button type="submit" buttonType="generic">
-            Sign Up
+      {signUpSuccess ? (
+        <div className="sign-up-success-message">
+          <h1>Sign Up Successful</h1>
+          <p>You are signed in!</p>
+          <Button buttonType="generic" onClick={handleRedirect}>
+            Go to Plants Page
           </Button>
         </div>
-      </form>
+      ) : (
+        <>
+          <h1>Sign Up</h1>
+          <form onSubmit={handleSubmit}>
+            <FormInput
+              label="Full Name"
+              type="text"
+              name="displayName"
+              value={displayName}
+              onChange={handleChange}
+              autoComplete="name"
+              required
+            />
+            <FormInput
+              label="Email address"
+              type="email"
+              name="email"
+              value={email}
+              onChange={handleChange}
+              autoComplete="email"
+              required
+            />
+            <FormInput
+              label="Password"
+              type="password"
+              name="password"
+              value={password}
+              onChange={handleChange}
+              autoComplete="new-password"
+              required
+            />
+            <FormInput
+              label="Confirm Password"
+              type="password"
+              name="confirmPassword"
+              value={confirmPassword}
+              onChange={handleChange}
+              autoComplete="new-password"
+              required
+            />
+            <div className="sign-up-button-container">
+              <Button type="submit" buttonType="generic">
+                Sign Up
+              </Button>
+            </div>
+          </form>
+        </>
+      )}
     </div>
   );
 };
