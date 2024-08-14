@@ -8,6 +8,12 @@
 .navbar-collapse{
     flex-grow: 0 !important;
 }
+.nav-link{
+    cursor: pointer;
+}
+.nav-link:hover{
+    color: green !important;
+}
 
 @media (min-width: 768px) {
     .navbar{

@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { CartContext } from "../../contexts/cart.context";
+import CartIcon from "../cart-icon/cart-icon.component";
 import Button from "../button/button.component";
 
 const PlantCard = ({ plant }) => {
@@ -24,7 +25,7 @@ const PlantCard = ({ plant }) => {
         ...prevState,
         buttonText: "Add To Cart",
       }));
-    }, 2000);
+    }, 1000);
   };
 
   return (
@@ -33,7 +34,9 @@ const PlantCard = ({ plant }) => {
       <div className="card-body">
         <h2 className="card-title">{plant.name}</h2>
         <p className="card-text">{plant.description}</p>
-        <p className="card-description">Price: ${plant.price.toFixed(2)}</p>
+        <p className="card-description">
+          Price: ${plant.price.toFixed(2)} <CartIcon />
+        </p>
         <div className="d-flex flex-column">
           <Button buttonType="cart" onClick={handleAddToCart}>
             {buttonState.buttonText}

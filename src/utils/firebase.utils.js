@@ -5,6 +5,7 @@ import {
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  signInWithRedirect,
   signOut,
   onAuthStateChanged,
 } from "firebase/auth";
@@ -23,13 +24,16 @@ const app = initializeApp(firebaseConfig);
 
 //google sign in pop up
 const googleProvider = new GoogleAuthProvider();
+
 googleProvider.setCustomParameters({
   prompt: "select_account",
 });
+
 export const auth = getAuth(app);
 export const signInWithGooglePopup = () =>
   signInWithPopup(auth, googleProvider);
-
+export const signInWithGoogleRedirect = () =>
+  signInWithRedirect(auth, googleProvider);
 //user data/ storing user data
 export const db = getFirestore();
 
