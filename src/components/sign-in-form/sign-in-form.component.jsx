@@ -16,6 +16,7 @@ const defaultFormFields = {
 const SignInForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const [signInSuccess, setSignInSuccess] = useState(false);
+  const [signInFailure, setSignInFailure] = useState(false);
   const { email, password } = formFields;
   const navigate = useNavigate();
 
@@ -27,8 +28,11 @@ const SignInForm = () => {
     try {
       await signInWithGooglePopup();
       setSignInSuccess(true);
+      setSignInFailure(false);
     } catch (error) {
       console.error("Error signing in with Google:", error);
+      setSignInFailure(true);
+      resetFormFields(); // Reset form on failure
     }
   };
 
@@ -38,8 +42,12 @@ const SignInForm = () => {
     try {
       await signInAuthUserWithEmailAndPassword(email, password);
       setSignInSuccess(true);
+      setSignInFailure(false);
       resetFormFields();
     } catch (error) {
+      setSignInSuccess(false);
+      setSignInFailure(true);
+      resetFormFields(); // Reset form on failure
       switch (error.code) {
         case "auth/wrong-password":
           alert("Incorrect password for email");
@@ -71,6 +79,11 @@ const SignInForm = () => {
           <Button buttonType="generic" onClick={handleRedirect}>
             Go to Plants Page
           </Button>
+        </div>
+      ) : signInFailure ? (
+        <div className="sign-in-failure-message">
+          <h1>Failed Signing In</h1>
+          <p>There was an issue with your sign-in. Please try again.</p>
         </div>
       ) : (
         <>

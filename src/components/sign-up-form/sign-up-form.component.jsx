@@ -18,6 +18,7 @@ const defaultFormFields = {
 const SignUpForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const [signUpSuccess, setSignUpSuccess] = useState(false);
+  const [signUpFailure, setSignUpFailure] = useState(false);
   const { displayName, email, password, confirmPassword } = formFields;
   const navigate = useNavigate();
 
@@ -42,14 +43,18 @@ const SignUpForm = () => {
       );
       await createUserDocumentFromAuth(user, { displayName });
       setSignUpSuccess(true);
+      setSignUpFailure(false);
       resetFormFields();
     } catch (error) {
+      setSignUpSuccess(false);
+      setSignUpFailure(true);
+      resetFormFields(); // Reset form on failure
       if (error.code === "auth/email-already-in-use") {
         alert("Cannot create user, email already in use");
       } else if (error.code === "auth/weak-password") {
         alert("Password should be at least 6 characters");
       } else {
-        console.log("user creation failed", error);
+        console.log("User creation failed", error);
       }
     }
   };
@@ -72,6 +77,11 @@ const SignUpForm = () => {
           <Button buttonType="generic" onClick={handleRedirect}>
             Go to Plants Page
           </Button>
+        </div>
+      ) : signUpFailure ? (
+        <div className="sign-up-failure-message">
+          <h1>Failed Signing Up</h1>
+          <p>There was an issue with your sign-up. Please try again.</p>
         </div>
       ) : (
         <>
