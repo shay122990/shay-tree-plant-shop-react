@@ -6,6 +6,7 @@ import {
 } from "../../utils/firebase.utils";
 import FormInput from "../form-input/form-input.component";
 import Button from "../button/button.component";
+import MessageDisplay from "../message-display/message-display.component";
 import { useNavigate } from "react-router-dom";
 
 const defaultFormFields = {
@@ -48,7 +49,7 @@ const SignUpForm = () => {
     } catch (error) {
       setSignUpSuccess(false);
       setSignUpFailure(true);
-      resetFormFields(); // Reset form on failure
+      setTimeout(() => setSignUpFailure(false), 2000);
       if (error.code === "auth/email-already-in-use") {
         alert("Cannot create user, email already in use");
       } else if (error.code === "auth/weak-password") {
@@ -70,19 +71,17 @@ const SignUpForm = () => {
 
   return (
     <div className="sign-up-container">
-      {signUpSuccess ? (
-        <div className="sign-up-success-message">
-          <h1>Sign Up Successful</h1>
-          <p>You are signed in!</p>
-          <Button buttonType="generic" onClick={handleRedirect}>
-            Go to Plants Page
-          </Button>
-        </div>
-      ) : signUpFailure ? (
-        <div className="sign-up-failure-message">
-          <h1>Failed Signing Up</h1>
-          <p>There was an issue with your sign-up. Please try again.</p>
-        </div>
+      {signUpSuccess || signUpFailure ? (
+        <MessageDisplay
+          isSuccess={signUpSuccess}
+          message={
+            signUpSuccess
+              ? "Sign Up Successful! You are now signed in!"
+              : "There was an issue with your sign-up. Please try again."
+          }
+          buttonText={signUpSuccess ? "Go to Plants Page" : undefined}
+          onButtonClick={signUpSuccess ? handleRedirect : undefined}
+        />
       ) : (
         <>
           <h1>Sign Up</h1>
@@ -113,6 +112,7 @@ const SignUpForm = () => {
               onChange={handleChange}
               autoComplete="new-password"
               required
+              placeholder="Password must be no less than 6 characters"
             />
             <FormInput
               label="Confirm Password"

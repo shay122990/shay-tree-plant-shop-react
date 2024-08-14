@@ -1,0 +1,13 @@
+.message-display {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .message-display.success {
+    color: white;
+  }
+  
+  .message-display.failure {
+    color: white;
+  }
+  

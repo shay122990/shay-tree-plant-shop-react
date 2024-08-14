@@ -7,6 +7,7 @@ import {
 import FormInput from "../form-input/form-input.component";
 import Button from "../button/button.component";
 import { useNavigate } from "react-router-dom";
+import MessageDisplay from "../message-display/message-display.component";
 
 const defaultFormFields = {
   email: "",
@@ -29,10 +30,12 @@ const SignInForm = () => {
       await signInWithGooglePopup();
       setSignInSuccess(true);
       setSignInFailure(false);
+      resetFormFields();
     } catch (error) {
       console.error("Error signing in with Google:", error);
+      setSignInSuccess(false);
       setSignInFailure(true);
-      resetFormFields(); // Reset form on failure
+      setTimeout(() => setSignInFailure(false), 3000);
     }
   };
 
@@ -47,17 +50,20 @@ const SignInForm = () => {
     } catch (error) {
       setSignInSuccess(false);
       setSignInFailure(true);
-      resetFormFields(); // Reset form on failure
+      resetFormFields();
+
       switch (error.code) {
-        case "auth/wrong-password":
+        case "auth/invalid-password":
           alert("Incorrect password for email");
           break;
         case "auth/user-not-found":
           alert("No user associated with this email");
           break;
         default:
+          alert("Either email or password is wrong. Please try again.");
           console.error("Error during sign-in:", error);
       }
+      setTimeout(() => setSignInFailure(false), 2000);
     }
   };
 
@@ -72,19 +78,17 @@ const SignInForm = () => {
 
   return (
     <div className="sign-in-container">
-      {signInSuccess ? (
-        <div className="sign-in-success-message">
-          <h1>Sign In Successful</h1>
-          <p>You are signed in!</p>
-          <Button buttonType="generic" onClick={handleRedirect}>
-            Go to Plants Page
-          </Button>
-        </div>
-      ) : signInFailure ? (
-        <div className="sign-in-failure-message">
-          <h1>Failed Signing In</h1>
-          <p>There was an issue with your sign-in. Please try again.</p>
-        </div>
+      {signInSuccess || signInFailure ? (
+        <MessageDisplay
+          isSuccess={signInSuccess}
+          message={
+            signInSuccess
+              ? "You are signed in!"
+              : "There was an issue with your sign-in. Please try again."
+          }
+          buttonText={signInSuccess ? "Go to Plants Page" : undefined}
+          onButtonClick={signInSuccess ? handleRedirect : undefined}
+        />
       ) : (
         <>
           <h1>Sign In</h1>
