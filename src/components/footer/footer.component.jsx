@@ -12,7 +12,7 @@ const Footer = () => {
         <img src={logo} alt={logo} className="footer-img" />
       </a>
 
-      <ul className="nav col-md-4 justify-content-end">
+      <ul className="nav col-md-4 justify-content-center">
         <li className="nav-item">
           <a href="#" className="nav-link px-2 text-body-secondary">
             Home

@@ -12,7 +12,7 @@ const Navbar = () => {
   const { isCartOpen } = useContext(CartContext);
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className="navbar navbar-expand-lg navbar-light">
         <div className="container-fluid d-flex justify-content-between mx-3">
           <Link className="navbar-brand" to="/">
             <img src={logo} alt="Shay's Tree Logo" />

@@ -1,7 +1,10 @@
 import "./checkout.page.styles.css";
 import { useContext } from "react";
 import { CartContext } from "../../contexts/cart.context";
+import { useNavigate } from "react-router-dom";
+
 import logo from "../../assets/shays-tree.jpg";
+import Button from "../../components/button/button.component";
 
 const Checkout = () => {
   const {
@@ -11,6 +14,11 @@ const Checkout = () => {
     removeItemFromCart,
     clearItemFromCart,
   } = useContext(CartContext);
+
+  const navigate = useNavigate();
+  const handleRedirect = () => {
+    navigate("/plants");
+  };
 
   const handleAddItemToCart = (cartItem) => {
     addItemToCart(cartItem);
@@ -63,6 +71,9 @@ const Checkout = () => {
           <h6 className="total">Total: ${cartTotal}</h6>
         </span>
       </div>
+      <Button buttonType="cart" onClick={handleRedirect}>
+        Get More Plants
+      </Button>
     </main>
   );
 };
