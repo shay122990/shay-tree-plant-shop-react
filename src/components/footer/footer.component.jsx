@@ -1,4 +1,5 @@
 import "./footer.styles.css";
+import { Link } from "react-router-dom";
 import logo from "../../assets/shays-tree.jpg";
 const Footer = () => {
   return (
@@ -11,32 +12,26 @@ const Footer = () => {
       >
         <img src={logo} alt={logo} className="footer-img" />
       </a>
-
       <ul className="nav col-md-4 justify-content-center">
         <li className="nav-item">
-          <a href="#" className="nav-link px-2 text-body-secondary">
+          <Link to="/" className="nav-link px-2 text-body-secondary">
             Home
-          </a>
+          </Link>
         </li>
         <li className="nav-item">
-          <a href="#" className="nav-link px-2 text-body-secondary">
-            Features
-          </a>
+          <Link to="/plants" className="nav-link px-2 text-body-secondary">
+            Plants
+          </Link>
         </li>
         <li className="nav-item">
-          <a href="#" className="nav-link px-2 text-body-secondary">
+          <Link to="/pricing" className="nav-link px-2 text-body-secondary">
             Pricing
-          </a>
+          </Link>
         </li>
         <li className="nav-item">
-          <a href="#" className="nav-link px-2 text-body-secondary">
-            FAQs
-          </a>
-        </li>
-        <li className="nav-item">
-          <a href="#" className="nav-link px-2 text-body-secondary">
+          <Link to="/about" className="nav-link px-2 text-body-secondary">
             About
-          </a>
+          </Link>
         </li>
       </ul>
     </footer>
