@@ -1,3 +1,4 @@
+
 # Logs
 logs
 *.log
@@ -7,16 +8,10 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-# Dependencies
-/node_modules
-/.pnp
-.pnp.js
-
-# Testing
-/coverage
-
-# Production
-/build
+node_modules
+dist
+dist-ssr
+*.local
 
 # Editor directories and files
 .vscode/*
@@ -28,10 +23,28 @@ lerna-debug.log*
 *.njsproj
 *.sln
 *.sw?
+=======
 
-# Misc
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
+.DS_Store
 .env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
