@@ -1,0 +1,14 @@
+.payment-form-container{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+.payment-form-container h2{
+    margin-bottom: 40px;
+}
+.card-element{
+    height: 100px;
+    width: 100%;
+}

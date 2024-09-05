@@ -1,4 +1,4 @@
-// import "./payment-form.styles.scss";
+import "./payment-form.styles.css";
 import { useContext, useState } from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { CartContext } from "../../contexts/cart.context";
@@ -63,7 +63,7 @@ const PaymentForm = ({ onSuccess, onError }) => {
     <div className="payment-form-container">
       <form className="form-container" onSubmit={paymentHandler}>
         <h2>Credit Card Payment:</h2>
-        <CardElement className="card" />
+        <CardElement className="card-element" />
         <div className="payment-button">
           <Button buttonType="payment" isLoading={isProcessingPayment}>
             Pay Now
@@ -72,6 +72,11 @@ const PaymentForm = ({ onSuccess, onError }) => {
       </form>
     </div>
   );
+};
+
+PaymentForm.defaultProps = {
+  onSuccess: () => {},
+  onError: () => {},
 };
 
 export default PaymentForm;
