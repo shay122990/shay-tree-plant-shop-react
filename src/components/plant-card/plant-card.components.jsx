@@ -34,9 +34,9 @@ const PlantCard = ({ plant }) => {
       <div className="card-body">
         <h2 className="card-title">{plant.name}</h2>
         <p className="card-text">{plant.description}</p>
-        <p className="card-description">
+        <div className="card-description">
           Price: ${plant.price.toFixed(2)} <CartIcon />
-        </p>
+        </div>
         <div className="d-flex flex-column cart-btn-container">
           <Button buttonType="cart" onClick={handleAddToCart}>
             {buttonState.buttonText}

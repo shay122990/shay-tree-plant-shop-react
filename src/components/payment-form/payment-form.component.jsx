@@ -5,14 +5,12 @@ import { CartContext } from "../../contexts/cart.context";
 import { UserContext } from "../../contexts/user.context";
 import Button from "../button/button.component";
 
-const PaymentForm = ({ onSuccess, onError }) => {
+const PaymentForm = ({ onSuccess = () => {}, onError = () => {} }) => {
   const stripe = useStripe();
   const elements = useElements();
 
   const { cartTotal } = useContext(CartContext);
-
   const { currentUser } = useContext(UserContext);
-
   const [isProcessingPayment, setIsProcessingPayment] = useState(false);
 
   const paymentHandler = async (e) => {
@@ -72,11 +70,6 @@ const PaymentForm = ({ onSuccess, onError }) => {
       </form>
     </div>
   );
-};
-
-PaymentForm.defaultProps = {
-  onSuccess: () => {},
-  onError: () => {},
 };
 
 export default PaymentForm;
