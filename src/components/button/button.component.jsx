@@ -8,20 +8,28 @@ const BUTTON_TYPE_CLASSES = {
   payment: "btn btn-info",
 };
 
-const Button = ({ children, buttonType, ...otherProps }) => {
+const Button = ({
+  children,
+  buttonType = "generic",
+  isLoading,
+  ...otherProps
+}) => {
   return (
     <button
       className={`btn ${BUTTON_TYPE_CLASSES[buttonType]}`}
+      disabled={isLoading}
       {...otherProps}
     >
-      {children}
+      {isLoading ? "Loading..." : children}
     </button>
   );
 };
 
 Button.propTypes = {
   children: PropTypes.node.isRequired,
-  buttonType: PropTypes.oneOf(["google", "generic", "cart"]).isRequired,
+  buttonType: PropTypes.oneOf(["google", "generic", "cart", "payment"])
+    .isRequired,
+  isLoading: PropTypes.bool,
 };
 
 export default Button;

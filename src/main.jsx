@@ -9,13 +9,17 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import { UserProvider } from "./contexts/user.context.jsx";
 import { ProductsProvider } from "./contexts/product.context.jsx";
 import { CartProvider } from "./contexts/cart.context.jsx";
+import { Elements } from "@stripe/react-stripe-js";
+import { stripePromise } from "./utils/stripe.utils";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <UserProvider>
       <ProductsProvider>
         <CartProvider>
-          <App />
+          <Elements stripe={stripePromise}>
+            <App />
+          </Elements>
         </CartProvider>
       </ProductsProvider>
     </UserProvider>
