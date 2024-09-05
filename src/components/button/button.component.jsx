@@ -5,6 +5,7 @@ const BUTTON_TYPE_CLASSES = {
   google: "btn btn-primary",
   generic: "btn btn-light",
   cart: "btn btn-outline-dark",
+  payment: "btn btn-info",
 };
 
 const Button = ({ children, buttonType, ...otherProps }) => {

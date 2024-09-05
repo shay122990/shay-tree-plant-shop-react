@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 import logo from "../../assets/shays-tree.jpg";
 import Button from "../../components/button/button.component";
+import PaymentForm from "../../components/payment-form/payment-form.component";
 
 const Checkout = () => {
   const {
@@ -74,6 +75,7 @@ const Checkout = () => {
       <Button buttonType="cart" onClick={handleRedirect}>
         Get More Plants
       </Button>
+      <PaymentForm />
     </main>
   );
 };
