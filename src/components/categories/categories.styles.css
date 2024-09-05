@@ -7,6 +7,7 @@
 .category-card-title:hover{
     color: green;
 }
+
 @media (min-width:768px){
     .category-card-title{
         margin: 10px !important;

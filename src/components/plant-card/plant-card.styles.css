@@ -29,7 +29,7 @@
 }
 @media (min-width: 738px) {
     .card-img-top{
-        height: 200px;
+        height: 300px;
     }
     .card-text{
         height: 100px;

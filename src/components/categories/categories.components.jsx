@@ -18,7 +18,7 @@ const Categories = () => {
                   className="card-img-top"
                   alt={category.name}
                 />
-                <div className="card-body">
+                <div className="card-body h-25">
                   <h5 className="category-card-title">{category.name}</h5>
                 </div>
               </Link>
