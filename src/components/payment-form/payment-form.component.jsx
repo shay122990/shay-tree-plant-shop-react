@@ -1,4 +1,6 @@
 import "./payment-form.styles.css";
+import PropTypes from "prop-types";
+
 import { useContext, useState } from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { CartContext } from "../../contexts/cart.context";
@@ -70,6 +72,11 @@ const PaymentForm = ({ onSuccess = () => {}, onError = () => {} }) => {
       </form>
     </div>
   );
+};
+
+PaymentForm.propTypes = {
+  onSuccess: PropTypes.func,
+  onError: PropTypes.func,
 };
 
 export default PaymentForm;
