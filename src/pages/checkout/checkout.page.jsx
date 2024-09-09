@@ -33,7 +33,7 @@ const Checkout = () => {
     clearItemFromCart(cartItem);
   };
   return (
-    <main className="container-fluid d-flex flex-column justify-content-center align-items-center px-1">
+    <main className="container-fluid d-flex flex-column justify-content-center align-items-center px-1 gap-2">
       <div className="py-5 text-center">
         <img src={logo} className="checkout-img d-block mx-auto mb-4" />
         <h2>Checkout Form</h2>
@@ -72,10 +72,10 @@ const Checkout = () => {
           <h6 className="total">Total: ${cartTotal}</h6>
         </span>
       </div>
+      <PaymentForm />
       <Button buttonType="cart" onClick={handleRedirect}>
         Get More Plants
       </Button>
-      <PaymentForm />
     </main>
   );
 };
