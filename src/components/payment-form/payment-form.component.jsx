@@ -1,19 +1,19 @@
 import "./payment-form.styles.css";
 import PropTypes from "prop-types";
-
 import { useContext, useState } from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { CartContext } from "../../contexts/cart.context";
 import { UserContext } from "../../contexts/user.context";
 import Button from "../button/button.component";
-
+import MessageDisplay from "../message-display/message-display.component";
 const PaymentForm = ({ onSuccess = () => {}, onError = () => {} }) => {
   const stripe = useStripe();
   const elements = useElements();
-
   const { cartTotal } = useContext(CartContext);
   const { currentUser } = useContext(UserContext);
   const [isProcessingPayment, setIsProcessingPayment] = useState(false);
+  const [message, setMessage] = useState(null);
+  const [isSuccess, setIsSuccess] = useState(null);
 
   const paymentHandler = async (e) => {
     e.preventDefault();
@@ -39,6 +39,8 @@ const PaymentForm = ({ onSuccess = () => {}, onError = () => {} }) => {
 
       if (!response.paymentIntent) {
         console.log("Failed to create payment intent:", response);
+        setMessage("Failed to create payment intent.");
+        setIsSuccess(false);
         onError("Failed to create payment intent.");
         return;
       }
@@ -56,22 +58,31 @@ const PaymentForm = ({ onSuccess = () => {}, onError = () => {} }) => {
 
       if (paymentResult.error) {
         console.log("Payment failed:", paymentResult.error.message);
+        setMessage(paymentResult.error.message);
+        setIsSuccess(false);
         onError(paymentResult.error.message);
       } else if (paymentResult.paymentIntent.status === "succeeded") {
         console.log("Payment successful!");
+        setMessage("Payment Successful!");
+        setIsSuccess(true);
         onSuccess("Payment Successful!");
-        alert("Payment Successful!");
       } else {
         console.log(
           "Payment failed with status:",
           paymentResult.paymentIntent.status
         );
+        setMessage(
+          `Payment failed with status: ${paymentResult.paymentIntent.status}`
+        );
+        setIsSuccess(false);
         onError(
           `Payment failed with status: ${paymentResult.paymentIntent.status}`
         );
       }
     } catch (error) {
       console.error("An unexpected error occurred:", error);
+      setMessage("An unexpected error occurred.");
+      setIsSuccess(false);
       onError("An unexpected error occurred.");
     } finally {
       setIsProcessingPayment(false);
@@ -80,15 +91,24 @@ const PaymentForm = ({ onSuccess = () => {}, onError = () => {} }) => {
 
   return (
     <div className="payment-form-container">
-      <form className="form-container" onSubmit={paymentHandler}>
-        <h2>Credit Card Payment:</h2>
-        <CardElement className="card-element" />
-        <div className="payment-button">
-          <Button buttonType="payment" isLoading={isProcessingPayment}>
-            Pay Now
-          </Button>
-        </div>
-      </form>
+      {message ? (
+        <MessageDisplay
+          isSuccess={isSuccess}
+          message={message}
+          onButtonClick={null}
+          buttonText={null}
+        />
+      ) : (
+        <form className="form-container" onSubmit={paymentHandler}>
+          <h2>Credit Card Payment:</h2>
+          <CardElement className="card-element" />
+          <div className="payment-button">
+            <Button buttonType="payment" isLoading={isProcessingPayment}>
+              Pay Now
+            </Button>
+          </div>
+        </form>
+      )}
     </div>
   );
 };

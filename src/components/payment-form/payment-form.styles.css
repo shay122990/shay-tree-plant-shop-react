@@ -4,6 +4,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    background-color: black !important;
 }
 .payment-form-container h2{
     margin-bottom: 40px;

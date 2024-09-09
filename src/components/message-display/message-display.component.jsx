@@ -5,14 +5,14 @@ import PropTypes from "prop-types";
 const MessageDisplay = ({
   isSuccess,
   message,
-  buttonText = "Click Here",
+  buttonText = null,
   onButtonClick = null,
 }) => {
   return (
     <div className={`message-display ${isSuccess ? "success" : "failure"}`}>
       <h1>{isSuccess ? "Success" : "Failure"}</h1>
       <p>{message}</p>
-      {isSuccess && (
+      {buttonText && (
         <Button buttonType="generic" onClick={onButtonClick}>
           {buttonText}
         </Button>
