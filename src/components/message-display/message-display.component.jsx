@@ -10,7 +10,7 @@ const MessageDisplay = ({
 }) => {
   return (
     <div className={`message-display ${isSuccess ? "success" : "failure"}`}>
-      <h1>{isSuccess ? "Success" : "Failure"}</h1>
+      <p>{isSuccess ? "Success" : "Failure"}</p>
       <p>{message}</p>
       {buttonText && (
         <Button buttonType="generic" onClick={onButtonClick}>
