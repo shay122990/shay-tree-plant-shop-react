@@ -90,7 +90,7 @@ const PaymentForm = ({ onSuccess = () => {}, onError = () => {} }) => {
   };
 
   return (
-    <div className="container-fluid d-flex flex-column justify-content-center align-items-center px-1 ">
+    <div className="container-fluid d-flex flex-column justify-content-center  align-items-center px-1 ">
       {message ? (
         <MessageDisplay
           isSuccess={isSuccess}
@@ -101,11 +101,11 @@ const PaymentForm = ({ onSuccess = () => {}, onError = () => {} }) => {
         />
       ) : (
         <form
-          className="container d-flex flex-column w-sm-100 w-md-75 px-5 py-3 border border-secondary rounded gap-3"
+          className="d-flex flex-column w-75 px-5 py-3 border border-secondary rounded gap-3"
           onSubmit={paymentHandler}
         >
           <h4 className="cc-payment">Credit Card Payment:</h4>
-          <CardElement className="w-md-25 w-sm-100 border border-dark rounded" />
+          <CardElement className="border border-dark rounded  py-2" />
           <Button buttonType="payment" isLoading={isProcessingPayment}>
             Pay Now
           </Button>

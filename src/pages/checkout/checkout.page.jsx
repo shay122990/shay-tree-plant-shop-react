@@ -41,7 +41,7 @@ const Checkout = () => {
           Please fill our the form to receive your green friends!{" "}
         </p>
       </div>
-      <div className="container d-flex flex-column w-sm-100 w-md-75 px-5 py-3 border border-secondary rounded">
+      <div className="d-flex flex-column w-75 px-5 py-3 border border-secondary rounded">
         <h6 className="cart">Your Cart</h6>
         {cartItems.map((cartItem) => (
           <div key={cartItem.id}>
