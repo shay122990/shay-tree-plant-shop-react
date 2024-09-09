@@ -19,6 +19,7 @@ const PaymentForm = ({ onSuccess = () => {}, onError = () => {} }) => {
     e.preventDefault();
 
     if (!stripe || !elements) {
+      console.log("Stripe.js has not loaded yet.");
       return;
     }
 
@@ -36,6 +37,12 @@ const PaymentForm = ({ onSuccess = () => {}, onError = () => {} }) => {
         }
       ).then((res) => res.json());
 
+      if (!response.paymentIntent) {
+        console.log("Failed to create payment intent:", response);
+        onError("Failed to create payment intent.");
+        return;
+      }
+
       const clientSecret = response.paymentIntent.client_secret;
 
       const paymentResult = await stripe.confirmCardPayment(clientSecret, {
@@ -48,11 +55,23 @@ const PaymentForm = ({ onSuccess = () => {}, onError = () => {} }) => {
       });
 
       if (paymentResult.error) {
+        console.log("Payment failed:", paymentResult.error.message);
         onError(paymentResult.error.message);
       } else if (paymentResult.paymentIntent.status === "succeeded") {
+        console.log("Payment successful!");
         onSuccess("Payment Successful!");
+        alert("Payment Successful!");
+      } else {
+        console.log(
+          "Payment failed with status:",
+          paymentResult.paymentIntent.status
+        );
+        onError(
+          `Payment failed with status: ${paymentResult.paymentIntent.status}`
+        );
       }
     } catch (error) {
+      console.error("An unexpected error occurred:", error);
       onError("An unexpected error occurred.");
     } finally {
       setIsProcessingPayment(false);
