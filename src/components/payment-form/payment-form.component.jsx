@@ -90,7 +90,7 @@ const PaymentForm = ({ onSuccess = () => {}, onError = () => {} }) => {
   };
 
   return (
-    <div className="container-fluid d-flex flex-column justify-content-center align-items-center px-1">
+    <div className="container-fluid d-flex flex-column justify-content-center align-items-center px-1 ">
       {message ? (
         <MessageDisplay
           isSuccess={isSuccess}
