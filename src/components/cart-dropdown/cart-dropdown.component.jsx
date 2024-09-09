@@ -7,11 +7,12 @@ import CartItem from "../cart-item/cart-item.component";
 import Button from "../button/button.component";
 
 const CartDropdown = () => {
-  const { cartItems, cartTotal } = useContext(CartContext);
+  const { cartItems, cartTotal, setIsCartOpen } = useContext(CartContext);
   const navigate = useNavigate();
 
   const handleGoToCheckout = () => {
     navigate("/checkout");
+    setIsCartOpen(false);
   };
 
   return (

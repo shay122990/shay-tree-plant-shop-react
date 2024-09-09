@@ -105,7 +105,7 @@ const PaymentForm = ({ onSuccess = () => {}, onError = () => {} }) => {
           onSubmit={paymentHandler}
         >
           <h4 className="cc-payment">Credit Card Payment:</h4>
-          <CardElement className="border border-dark rounded  py-2" />
+          <CardElement className="border border-dark rounded py-2" />
           <Button buttonType="payment" isLoading={isProcessingPayment}>
             Pay Now
           </Button>
