@@ -21,6 +21,9 @@
     gap:1rem;
     padding: 1rem 0 0 0;
 }
+.sign-up-message p{
+    color: white ;
+}
 @media (min-width: 768px){
     .sign-up-container {
         width: 70%;

@@ -7,9 +7,14 @@ const MessageDisplay = ({
   message,
   buttonText = null,
   onButtonClick = null,
+  className = "",
 }) => {
   return (
-    <div className={`message-display ${isSuccess ? "success" : "failure"}`}>
+    <div
+      className={`message-display ${
+        isSuccess ? "success" : "failure"
+      } ${className}`}
+    >
       <p>
         {isSuccess ? "Success: " : "Failure: "}
         {message}
@@ -28,6 +33,7 @@ MessageDisplay.propTypes = {
   message: PropTypes.string.isRequired,
   buttonText: PropTypes.string,
   onButtonClick: PropTypes.func,
+  className: PropTypes.string,
 };
 
 export default MessageDisplay;

@@ -97,6 +97,7 @@ const PaymentForm = ({ onSuccess = () => {}, onError = () => {} }) => {
           message={message}
           onButtonClick={null}
           buttonText={null}
+          className="payment-message"
         />
       ) : (
         <form

@@ -81,6 +81,7 @@ const SignUpForm = () => {
           }
           buttonText={signUpSuccess ? "Go to Plants Page" : undefined}
           onButtonClick={signUpSuccess ? handleRedirect : undefined}
+          className="sign-up-message"
         />
       ) : (
         <>
