@@ -46,7 +46,7 @@ const About = () => {
           pellentesque felis.
         </p>
       </div>
-      <div className="container-fluid d-flex w-100 h-75 gap-2  p-0 ">
+      <div className="container-fluid d-flex w-100 h-75 gap-2  p-0 about-content-container">
         {imageCardData.map((card, index) => (
           <ImageCard key={index} imageSrc={card.imageSrc} text={card.text} />
         ))}

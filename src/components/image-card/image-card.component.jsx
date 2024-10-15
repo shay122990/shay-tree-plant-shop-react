@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-// import "./image-card.styles.css";
+import "./image-card.styles.css";
 
 const ImageCard = ({ imageSrc, text }) => {
   return (
@@ -9,7 +9,7 @@ const ImageCard = ({ imageSrc, text }) => {
         src={imageSrc}
         alt="Card image cap"
       />
-      <div className="card-body h-95">
+      <div className="card-body h-95 image-card-info">
         <p className="card-text">{text}</p>
       </div>
     </div>
