@@ -11,4 +11,6 @@
 .btn-payment{
   border: 1px solid blue !important;
   background-color: aqua !important;
+  width: 100%;
+  margin: 0 !important;
 }
