@@ -26,7 +26,7 @@ const About = () => {
   return (
     <div className="container">
       <CarouselComponent carouselData={aboutCarouselData} />
-      <div className="company-info">
+      <div className="d-flex flex-column m-2">
         <h1 className="mt-4">About Shay&#39;s Tree</h1>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fringilla
@@ -46,9 +46,11 @@ const About = () => {
           pellentesque felis.
         </p>
       </div>
-      <div className="container-fluid d-flex w-100 h-75 gap-2  p-0 about-content-container">
+      <div className="d-flex justify-content-center flex-wrap align-items-center">
         {imageCardData.map((card, index) => (
-          <ImageCard key={index} imageSrc={card.imageSrc} text={card.text} />
+          <div className="col-12 col-md-6 col-lg-4 mb-3" key={index}>
+            <ImageCard imageSrc={card.imageSrc} text={card.text} />
+          </div>
         ))}
       </div>
     </div>

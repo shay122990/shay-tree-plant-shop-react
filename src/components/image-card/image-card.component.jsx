@@ -3,13 +3,13 @@ import "./image-card.styles.css";
 
 const ImageCard = ({ imageSrc, text }) => {
   return (
-    <div className="card w-75 h-75">
+    <div className="card w-75">
       <img
         className="card-img-top w-100 h-75"
         src={imageSrc}
         alt="Card image cap"
       />
-      <div className="card-body h-95 image-card-info">
+      <div className="card-body  image-card-info">
         <p className="card-text">{text}</p>
       </div>
     </div>
