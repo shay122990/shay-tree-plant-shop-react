@@ -6,6 +6,7 @@ import { CartContext } from "../../contexts/cart.context";
 import { UserContext } from "../../contexts/user.context";
 import Button from "../button/button.component";
 import MessageDisplay from "../message-display/message-display.component";
+
 const PaymentForm = ({ onSuccess = () => {}, onError = () => {} }) => {
   const stripe = useStripe();
   const elements = useElements();
@@ -24,6 +25,7 @@ const PaymentForm = ({ onSuccess = () => {}, onError = () => {} }) => {
     }
 
     setIsProcessingPayment(true);
+    setMessage(null);
 
     try {
       const response = await fetch(
@@ -90,26 +92,25 @@ const PaymentForm = ({ onSuccess = () => {}, onError = () => {} }) => {
   };
 
   return (
-    <div className="container-fluid w-100 d-flex flex-column justify-content-center  align-items-center p-0">
-      {message ? (
+    <div className="container-fluid w-100 d-flex flex-column justify-content-center align-items-center p-0">
+      <form
+        className="d-flex flex-column w-75 px-5 py-3 border border-secondary rounded gap-2"
+        onSubmit={paymentHandler}
+      >
+        <h4 className="cc-payment">Credit Card Payment:</h4>
+        <CardElement className="border border-dark rounded py-2" />
+        <Button buttonType="payment" isLoading={isProcessingPayment}>
+          Pay Now
+        </Button>
+      </form>
+      {message && (
         <MessageDisplay
           isSuccess={isSuccess}
           message={message}
           onButtonClick={null}
           buttonText={null}
-          className="payment-message"
+          className="payment-message mb-3"
         />
-      ) : (
-        <form
-          className="d-flex flex-column w-75 px-5 py-3 border border-secondary rounded gap-2"
-          onSubmit={paymentHandler}
-        >
-          <h4 className="cc-payment">Credit Card Payment:</h4>
-          <CardElement className="border border-dark rounded py-2" />
-          <Button buttonType="payment" isLoading={isProcessingPayment}>
-            Pay Now
-          </Button>
-        </form>
       )}
     </div>
   );
