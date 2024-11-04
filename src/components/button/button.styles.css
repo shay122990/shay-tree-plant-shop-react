@@ -8,3 +8,7 @@
   color: white !important;
   width: 250px;
 }
+.btn-payment{
+  border: 1px solid blue !important;
+  background-color: aqua !important;
+}

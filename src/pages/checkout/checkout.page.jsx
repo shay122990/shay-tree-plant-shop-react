@@ -33,7 +33,7 @@ const Checkout = () => {
     clearItemFromCart(cartItem);
   };
   return (
-    <main className="container-fluid d-flex flex-column justify-content-center align-items-center px-1 gap-2">
+    <main className="container-fluid d-flex flex-column justify-content-center align-items-center gap-1">
       <div className="py-5 text-center">
         <img src={logo} className="checkout-img d-block mx-auto mb-4" />
         <h2>Checkout Form</h2>
