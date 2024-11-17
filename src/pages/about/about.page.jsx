@@ -24,15 +24,14 @@ const About = () => {
   ];
 
   return (
-    <div className="container">
+    <div className="about-page-container">
       <CarouselComponent carouselData={aboutCarouselData} />
       <div className="d-flex flex-column m-2">
         <h1 className="mt-4">About Shay&#39;s Tree</h1>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fringilla
           lacus eget justo ultricies, sed condimentum justo consectetur. Nullam
-          hendrerit purus at semper pulvinar. Quisque vel orci id sem dapibus
-          consectetur vel eu lectus.
+          hendrerit purus at semper pulvinar.
         </p>
         <p>
           Sed interdum, arcu vel consectetur imperdiet, metus nunc pharetra
@@ -48,7 +47,10 @@ const About = () => {
       </div>
       <div className="d-flex justify-content-center flex-wrap align-items-center">
         {imageCardData.map((card, index) => (
-          <div className="col-12 col-md-6 col-lg-4 mb-3" key={index}>
+          <div
+            className="image-card-wrapper col-12 col-md-6 col-lg-4 mb-3 w-300"
+            key={index}
+          >
             <ImageCard imageSrc={card.imageSrc} text={card.text} />
           </div>
         ))}
