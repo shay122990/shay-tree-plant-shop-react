@@ -66,7 +66,7 @@ const PaymentForm = ({ onSuccess = () => {}, onError = () => {} }) => {
         console.log("Payment successful!");
         setMessage("Payment Successful!");
         setIsSuccess(true);
-        clearCart(); // Clear the cart after successful payment
+        clearCart();
         onSuccess("Payment Successful!");
       } else {
         console.log(
