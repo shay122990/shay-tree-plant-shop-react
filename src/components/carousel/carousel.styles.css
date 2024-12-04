@@ -29,6 +29,7 @@
 @media (min-width: 1420px) {
   .carousel-image {
     height: 60vh; 
+    width: 100%;
   }
   .carousel-text {
     font-size: 3rem;

@@ -24,7 +24,7 @@ const About = () => {
   ];
 
   return (
-    <div className="about-page-container">
+    <div className="container px-2ß">
       <CarouselComponent carouselData={aboutCarouselData} />
       <div className="d-flex flex-column m-2">
         <h1 className="mt-4">About Shay&#39;s Tree</h1>
