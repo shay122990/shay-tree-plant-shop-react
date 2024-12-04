@@ -13,7 +13,7 @@ const PaymentForm = ({ onSuccess = () => {}, onError = () => {} }) => {
   const { currentUser } = useContext(UserContext);
   const [isProcessingPayment, setIsProcessingPayment] = useState(false);
   const [message, setMessage] = useState(null);
-  const [isSuccess, setIsSuccess] = useState(null);
+  const [isSuccess, setIsSuccess] = useState(false);
 
   const paymentHandler = async (e) => {
     e.preventDefault();
@@ -30,7 +30,7 @@ const PaymentForm = ({ onSuccess = () => {}, onError = () => {} }) => {
       const response = await fetch(
         "/.netlify/functions/create-payment-intent",
         {
-          method: "post",
+          method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
@@ -39,15 +39,10 @@ const PaymentForm = ({ onSuccess = () => {}, onError = () => {} }) => {
       ).then((res) => res.json());
 
       if (!response.paymentIntent) {
-        console.log("Failed to create payment intent:", response);
-        setMessage("Failed to create payment intent.");
-        setIsSuccess(false);
-        onError("Failed to create payment intent.");
-        return;
+        throw new Error("Failed to create payment intent.");
       }
 
       const clientSecret = response.paymentIntent.client_secret;
-
       const paymentResult = await stripe.confirmCardPayment(clientSecret, {
         payment_method: {
           card: elements.getElement(CardElement),
@@ -58,33 +53,23 @@ const PaymentForm = ({ onSuccess = () => {}, onError = () => {} }) => {
       });
 
       if (paymentResult.error) {
-        console.log("Payment failed:", paymentResult.error.message);
-        setMessage(paymentResult.error.message);
-        setIsSuccess(false);
-        onError(paymentResult.error.message);
-      } else if (paymentResult.paymentIntent.status === "succeeded") {
+        throw new Error(paymentResult.error.message);
+      }
+
+      if (paymentResult.paymentIntent.status === "succeeded") {
         clearCart();
         setIsSuccess(true);
-        onSuccess("Payment Successful!");
         setMessage("Payment Successful!");
+        onSuccess("Payment Successful!");
       } else {
-        console.log(
-          "Payment failed with status:",
-          paymentResult.paymentIntent.status
-        );
-        setMessage(
-          `Payment failed with status: ${paymentResult.paymentIntent.status}`
-        );
-        setIsSuccess(false);
-        onError(
+        throw new Error(
           `Payment failed with status: ${paymentResult.paymentIntent.status}`
         );
       }
     } catch (error) {
-      console.error("An unexpected error occurred:", error);
-      setMessage("An unexpected error occurred.");
       setIsSuccess(false);
-      onError("An unexpected error occurred.");
+      setMessage(error.message || "An unexpected error occurred.");
+      onError(error.message);
     } finally {
       setIsProcessingPayment(false);
     }
@@ -102,6 +87,7 @@ const PaymentForm = ({ onSuccess = () => {}, onError = () => {} }) => {
           Pay Now
         </Button>
       </form>
+
       {message && (
         <MessageDisplay
           isSuccess={isSuccess}
