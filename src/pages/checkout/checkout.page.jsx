@@ -41,7 +41,7 @@ const Checkout = () => {
           Please fill our the form to receive your green friends!{" "}
         </p>
       </div>
-      <div className="d-flex flex-column w-75 px-5 py-3 border border-secondary rounded">
+      <div className="d-flex flex-column w-100 px-5 py-3 border border-secondary rounded">
         <h6 className="cart">Your Cart</h6>
         {cartItems.map((cartItem) => (
           <div key={cartItem.id}>
@@ -49,7 +49,7 @@ const Checkout = () => {
               className="list-group d-flex justify-content-between align-items-center mb-3"
               key={cartItem.id}
             >
-              <li className="list-group-item d-flex justify-content-between lh-sm w-100">
+              <li className="list-group-item d-flex justify-content-between lh-sm w-100 h-300px">
                 <h6 className="my-0 w-50">{cartItem.name}</h6>
                 <small>${cartItem.price}</small>
                 <span onClick={() => handleAddItemToCart(cartItem)}>
@@ -61,7 +61,7 @@ const Checkout = () => {
                 <span onClick={() => handleClearItemFromCart(cartItem)}>
                   <i className="bi bi-x"></i>
                 </span>
-                <span className="badge bg-secondary rounded-pill">
+                <span className="badge bg-secondary rounded-pill d-flex align-items-center justify-content-center w-auto w-sm-25 w-md-10 h-auto h-sm-25 h-md-10">
                   {cartItem.quantity}
                 </span>
               </li>

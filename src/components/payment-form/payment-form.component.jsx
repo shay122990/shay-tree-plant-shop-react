@@ -76,9 +76,9 @@ const PaymentForm = ({ onSuccess = () => {}, onError = () => {} }) => {
   };
 
   return (
-    <div className="container-fluid w-100 d-flex flex-column justify-content-center align-items-center p-0">
+    <div className="container-fluid d-flex flex-column justify-content-center align-items-center p-0">
       <form
-        className="d-flex flex-column w-75 px-5 py-3 border border-secondary rounded gap-2"
+        className="d-flex flex-column w-100 px-5 py-3 border border-secondary rounded gap-2"
         onSubmit={paymentHandler}
       >
         <h4 className="cc-payment">Credit Card Payment:</h4>
