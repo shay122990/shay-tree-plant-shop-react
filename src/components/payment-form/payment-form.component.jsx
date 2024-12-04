@@ -63,11 +63,10 @@ const PaymentForm = ({ onSuccess = () => {}, onError = () => {} }) => {
         setIsSuccess(false);
         onError(paymentResult.error.message);
       } else if (paymentResult.paymentIntent.status === "succeeded") {
-        console.log("Payment successful!");
-        setMessage("Payment Successful!");
-        setIsSuccess(true);
         clearCart();
+        setIsSuccess(true);
         onSuccess("Payment Successful!");
+        setMessage("Payment Successful!");
       } else {
         console.log(
           "Payment failed with status:",
