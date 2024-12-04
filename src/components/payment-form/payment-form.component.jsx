@@ -1,4 +1,3 @@
-import "./payment-form.styles.css";
 import PropTypes from "prop-types";
 import { useContext, useState } from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
@@ -10,7 +9,7 @@ import MessageDisplay from "../message-display/message-display.component";
 const PaymentForm = ({ onSuccess = () => {}, onError = () => {} }) => {
   const stripe = useStripe();
   const elements = useElements();
-  const { cartTotal } = useContext(CartContext);
+  const { cartTotal, clearCart } = useContext(CartContext);
   const { currentUser } = useContext(UserContext);
   const [isProcessingPayment, setIsProcessingPayment] = useState(false);
   const [message, setMessage] = useState(null);
@@ -67,6 +66,7 @@ const PaymentForm = ({ onSuccess = () => {}, onError = () => {} }) => {
         console.log("Payment successful!");
         setMessage("Payment Successful!");
         setIsSuccess(true);
+        clearCart(); // Clear the cart after successful payment
         onSuccess("Payment Successful!");
       } else {
         console.log(
