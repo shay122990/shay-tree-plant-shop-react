@@ -23,8 +23,8 @@ const CartDropdown = () => {
         ) : (
           cartItems.map((item) => <CartItem key={item.id} cartItem={item} />)
         )}
-        <span> Total: ${cartTotal}</span>
       </div>
+      <span> Total: ${cartTotal}</span>
       <Button buttonType="cart" onClick={handleGoToCheckout}>
         Go To Checkout
       </Button>

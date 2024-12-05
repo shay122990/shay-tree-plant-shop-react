@@ -16,3 +16,6 @@
 .btn-payment:hover{
   border: 1px solid blue !important;
 }
+.btn-outline-dark{
+  margin: 0 !important;
+}
