@@ -31,7 +31,7 @@ const PlantCard = ({ plant }) => {
   return (
     <div className="card h-200 my-10">
       <img src={plant.image} className="card-img-top" alt={plant.name} />
-      <div className="card-body">
+      <div className="card-body h-auto">
         <h2 className="card-title">{plant.name}</h2>
         <p className="card-text">{plant.description}</p>
         <div className="card-description">
