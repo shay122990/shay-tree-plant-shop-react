@@ -48,8 +48,9 @@ export const CartContext = createContext({
 });
 
 export const CartProvider = ({ children }) => {
+  const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
   const [isCartOpen, setIsCartOpen] = useState(false);
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState(savedCart);
 
   const cartCount = cartItems.reduce((total, item) => total + item.quantity, 0);
 
@@ -58,19 +59,26 @@ export const CartProvider = ({ children }) => {
     .toFixed(2);
 
   const addItemToCart = (productToAdd) => {
-    setCartItems(addCartItem(cartItems, productToAdd));
+    const updatedCartItems = addCartItem(cartItems, productToAdd);
+    setCartItems(updatedCartItems);
+    localStorage.setItem("cart", JSON.stringify(updatedCartItems));
   };
 
   const removeItemFromCart = (cartItemToRemove) => {
-    setCartItems(removeCartItem(cartItems, cartItemToRemove));
+    const updatedCartItems = removeCartItem(cartItems, cartItemToRemove);
+    setCartItems(updatedCartItems);
+    localStorage.setItem("cart", JSON.stringify(updatedCartItems));
   };
 
   const clearItemFromCart = (cartItemToClear) => {
-    setCartItems(clearCartItem(cartItems, cartItemToClear));
+    const updatedCartItems = clearCartItem(cartItems, cartItemToClear);
+    setCartItems(updatedCartItems);
+    localStorage.setItem("cart", JSON.stringify(updatedCartItems));
   };
 
   const clearCart = () => {
     setCartItems([]);
+    localStorage.removeItem("cart");
   };
 
   const value = {
