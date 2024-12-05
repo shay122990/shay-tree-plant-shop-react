@@ -134,6 +134,7 @@ To enable Stripe for payments:
    ```
 
 4. Use the `@stripe/react-stripe-js` and `@stripe/stripe-js` packages for integrating Stripe in your app.
+5. For development purposes make sure you use default numbers given by Stipe (4242424242424242 04/42 424 42424)
 
 <!-- ![Stripe Setup Image]() -->
 
