@@ -124,8 +124,39 @@ To enable Stripe for payments:
 
 4. Use the `@stripe/react-stripe-js` and `@stripe/stripe-js` packages for integrating Stripe in your app.
 5. For development purposes make sure you use default numbers given by Stipe (4242424242424242 04/42 424 42424)
+6. To test payments locally while using Netlify Functions, follow these steps:
 
-<!-- ![Stripe Setup Image]() -->
+### 1. Run Netlify Functions Locally
+
+#### Install the Netlify CLI:
+
+```bash
+npm install -g netlify-cli
+```
+
+#### Log in to Netlify:
+
+```bash
+netlify login
+```
+
+#### Run the App Locally with Netlify:
+
+Navigate to your project folder and run:
+
+```bash
+netlify dev
+```
+
+This command will:
+
+- Serve your app locally.
+- Run your Netlify serverless functions in a local environment.
+- Proxy requests to `/.netlify/functions/*`.
+
+You should now be able to use the same API endpoints in your app (e.g., `/.netlify/functions/create-payment-intent`) as you would in production.
+
+---
 
 ## State Management
 
