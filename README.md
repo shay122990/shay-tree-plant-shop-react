@@ -4,19 +4,6 @@
 
 ![Project Image](./public//shays-tree-readme.jpg)
 
-## Table of Contents
-
-- [Overview](#overview)
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Firebase Setup](#firebase-setup)
-- [Stripe Setup](#stripe-setup)
-- [State Management](#state-management)
-- [Contributing](#contributing)
-- [License](#license)
-
 ---
 
 ## Overview
@@ -33,7 +20,8 @@ This is an e-commerce web application built for selling plants. Users can browse
 - Stripe integration for secure payments.
 - Data storage and retrieval with Firestore.
 - Responsive design with Bootstrap.
-- Adding/Removing plants at checkout
+- Adding/Removing plants at checkout.
+- Local storage for added items
 
 ![Features Image](./public/auth-readme.jpg)
 ![Features Image](./public/auth-success-readme.jpg)
@@ -100,6 +88,7 @@ To set up this project locally, follow these steps:
 - Add products to the cart.
 - Checkout securely using Stripe.
 - User authentication for personalized shopping.
+- Come back to saved items
 
 <!-- ![Usage Image]() -->
 
@@ -141,6 +130,10 @@ To enable Stripe for payments:
 ## State Management
 
 The app uses React's Context API for state management. It manages global state for user authentication, the shopping cart, and products. The cart and user data are stored in contexts to allow easy access and updates from anywhere in the app.
+
+## Persistence
+
+The app uses local storage for your added items, so upon refresh or exit you can come back to the state you left it. Since this is a learning project I decided to use local storage, because it has not expiration, you can of course choose to use session storage or cookies. Developes choice.
 
 ## Contributing
 
