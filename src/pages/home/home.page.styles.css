@@ -1,13 +1,11 @@
 .home-container {
     background: url(../../assets/home-page-image.webp);
-    display: flex;
-    align-items: center;
-    justify-content: center;
     background-position: center center;
     background-size: cover;
     position: relative; 
+    height: 600px;
+    border-radius: 4px;
   }
-  
   .home-container::before {
     content: '';
     position: absolute;
@@ -17,26 +15,21 @@
     height: 100%;
     background: rgba(52, 74, 66, 0.5); 
     z-index: 1; 
+    border-radius: 4px;
+
   }
-  
   .cover-container {
     position: relative;
     z-index: 2;
+    color: white;
   }
- 
-  
-@media (min-width: 768px){
-    .home-container {
-        height: 60vh;
-    }
-}
 
-@media (min-width: 1420px){
+ @media (min-width: 1420px){
     .home-container {
-        height: 80vh;
+        height:800px;
     }
     .home-container h1{
       font-size: 4rem;
     }
-}
+} 
   

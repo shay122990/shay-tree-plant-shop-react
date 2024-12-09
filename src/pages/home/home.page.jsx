@@ -22,9 +22,9 @@ const Home = () => {
   }));
 
   return (
-    <div className="container d-flex flex-column gap-10 ">
-      <div className="d-flex  flex-column text-center home-container">
-        <main className="px-3">
+    <div className="container d-flex flex-column">
+      <div className="d-flex  flex-column text-center justify-content-center home-container">
+        <main className="px-3 cover-container">
           <h1>Shay&#39;s Tree</h1>
           <p className="lead">
             Transform your space with our curated selection of beautiful,
@@ -42,7 +42,7 @@ const Home = () => {
         </main>
       </div>
       <div className="container d-flex flex-column text-center mt-4">
-        <h2>Best Sellers</h2>
+        <h2 className="block mb-4">Best Sellers</h2>
         <CarouselComponent carouselData={carouselData} />
       </div>
     </div>
