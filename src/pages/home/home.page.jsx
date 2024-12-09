@@ -1,10 +1,29 @@
 import "./home.page.styles.css";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { ProductsContext } from "../../contexts/product.context";
+import CarouselComponent from "../../components/carousel/carousel.component";
 
 const Home = () => {
+  const { plants, categories } = useContext(ProductsContext);
+
+  const bestSellersCategory = categories.find(
+    (category) => category.name === "Best Sellers"
+  );
+
+  const bestSellersPlants = plants.filter((plant) =>
+    bestSellersCategory.plantIds.includes(plant.id)
+  );
+
+  const carouselData = bestSellersPlants.map((plant) => ({
+    image: plant.image,
+    text: plant.name,
+    description: plant.description || "",
+  }));
+
   return (
-    <div className="d-flex text-bg-dark text-center home-container">
-      <div className="cover-container d-flex w-100 p-3 mx-auto flex-column">
+    <div className="container d-flex flex-column gap-10 ">
+      <div className="d-flex  flex-column text-center home-container">
         <main className="px-3">
           <h1>Shay&#39;s Tree</h1>
           <p className="lead">
@@ -21,6 +40,10 @@ const Home = () => {
             </Link>
           </p>
         </main>
+      </div>
+      <div className="container d-flex flex-column text-center mt-4">
+        <h2>Best Sellers</h2>
+        <CarouselComponent carouselData={carouselData} />
       </div>
     </div>
   );
