@@ -1,6 +1,7 @@
 import "./checkout.page.styles.css";
 import { useContext } from "react";
 import { CartContext } from "../../contexts/cart.context";
+import { UserContext } from "../../contexts/user.context";
 import { useNavigate } from "react-router-dom";
 
 import logo from "../../assets/shays-tree.jpg";
@@ -16,9 +17,16 @@ const Checkout = () => {
     clearItemFromCart,
   } = useContext(CartContext);
 
+  const { currentUser } = useContext(UserContext);
+
   const navigate = useNavigate();
+
   const handleRedirect = () => {
     navigate("/plants");
+  };
+
+  const handleSignInRedirect = () => {
+    navigate("/auth");
   };
 
   const handleAddItemToCart = (cartItem) => {
@@ -32,24 +40,23 @@ const Checkout = () => {
   const handleClearItemFromCart = (cartItem) => {
     clearItemFromCart(cartItem);
   };
+
   return (
     <main className="container-fluid d-flex flex-column justify-content-center align-items-center gap-1">
       <div className="py-5 text-center">
         <img src={logo} className="checkout-img d-block mx-auto mb-4" />
         <h2>Checkout Form</h2>
         <p className="lead">
-          Please fill our the form to receive your green friends!{" "}
+          Please fill out the form to receive your green friends!
         </p>
       </div>
+
       <div className="d-flex flex-column col-12 col-md-6 px-5 py-3 border border-secondary rounded">
         <h6 className="cart">Your Cart</h6>
         {cartItems.map((cartItem) => (
           <div key={cartItem.id}>
-            <ul
-              className="list-group d-flex justify-content-between align-items-center mb-3"
-              key={cartItem.id}
-            >
-              <li className="list-group-item d-flex justify-content-between lh-sm w-100 h-300px">
+            <ul className="list-group d-flex justify-content-between align-items-center mb-3">
+              <li className="list-group-item d-flex justify-content-between lh-sm w-100">
                 <h6 className="my-0 w-50">{cartItem.name}</h6>
                 <small>${cartItem.price}</small>
                 <span onClick={() => handleAddItemToCart(cartItem)}>
@@ -61,7 +68,7 @@ const Checkout = () => {
                 <span onClick={() => handleClearItemFromCart(cartItem)}>
                   <i className="bi bi-x"></i>
                 </span>
-                <span className="badge bg-secondary rounded-pill d-flex align-items-center justify-content-center w-auto w-sm-25 w-md-10 h-auto h-sm-25 h-md-10">
+                <span className="badge bg-secondary rounded-pill">
                   {cartItem.quantity}
                 </span>
               </li>
@@ -72,7 +79,20 @@ const Checkout = () => {
           <h6 className="total">Total: ${cartTotal}</h6>
         </span>
       </div>
-      <PaymentForm />
+
+      {currentUser ? (
+        <PaymentForm />
+      ) : (
+        <div className="d-flex flex-column align-items-center my-4">
+          <p className="text-danger mb-3">
+            You must be signed in to proceed with payment.
+          </p>
+          <Button buttonType="payment" onClick={handleSignInRedirect}>
+            Sign In to Continue
+          </Button>
+        </div>
+      )}
+
       <Button buttonType="cart" onClick={handleRedirect}>
         Get More Plants
       </Button>
