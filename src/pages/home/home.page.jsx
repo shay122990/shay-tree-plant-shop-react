@@ -42,7 +42,7 @@ const Home = () => {
         </main>
       </div>
       <div className="container d-flex flex-column text-center mt-4">
-        <h2 className="block mb-4">Best Sellers</h2>
+        <h2 className="block mt-5">Best Sellers</h2>
         <div className="container text-center my-5">
           <div className="row justify-content-center">
             {categories.slice(0, 4).map((category) => (
