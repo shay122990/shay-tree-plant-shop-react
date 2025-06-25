@@ -22,8 +22,8 @@ const Home = () => {
   }));
 
   return (
-    <div className="container d-flex flex-column">
-      <div className="d-flex  flex-column text-center justify-content-center home-container">
+    <>
+      <div className="w-100 d-flex flex-column text-center justify-content-center home-container mb-4">
         <main className="px-3 cover-container">
           <h1>Shay&#39;s Tree</h1>
           <p className="lead">
@@ -43,6 +43,7 @@ const Home = () => {
       </div>
       <div className="container d-flex flex-column text-center mt-4">
         <h2 className="block mt-5">Best Sellers</h2>
+
         <div className="container text-center my-5">
           <div className="row justify-content-center">
             {categories.slice(0, 4).map((category) => (
@@ -61,7 +62,7 @@ const Home = () => {
         </div>
         <CarouselComponent carouselData={carouselData} />
       </div>
-    </div>
+    </>
   );
 };
 
