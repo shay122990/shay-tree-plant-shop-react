@@ -43,6 +43,22 @@ const Home = () => {
       </div>
       <div className="container d-flex flex-column text-center mt-4">
         <h2 className="block mb-4">Best Sellers</h2>
+        <div className="container text-center my-5">
+          <div className="row justify-content-center">
+            {categories.slice(0, 4).map((category) => (
+              <div key={category.name} className="col-6 col-md-3 mb-4">
+                <Link
+                  to={`/plants/category/${category.name}`}
+                  className="text-decoration-none text-dark"
+                >
+                  <div className="border rounded shadow-sm p-4 h-100 d-flex align-items-center justify-content-center category-tile">
+                    <span className="fw-semibold">{category.name}</span>
+                  </div>
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
         <CarouselComponent carouselData={carouselData} />
       </div>
     </div>
