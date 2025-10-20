@@ -10,6 +10,8 @@ import logo from "/shays-tree.jpg";
 import Button from "../../components/button/button.component";
 import PaymentForm from "../../components/payment-form/payment-form.component";
 
+import { FiPlus, FiMinus, FiX } from "react-icons/fi";
+
 const Checkout = () => {
   const {
     cartTotal,
@@ -20,28 +22,10 @@ const Checkout = () => {
   } = useContext(CartContext);
 
   const { currentUser } = useContext(UserContext);
-
   const navigate = useNavigate();
 
-  const handleRedirect = () => {
-    navigate("/plants");
-  };
-
-  const handleSignInRedirect = () => {
-    navigate("/auth");
-  };
-
-  const handleAddItemToCart = (cartItem) => {
-    addItemToCart(cartItem);
-  };
-
-  const handleRemoveItemFromCart = (cartItem) => {
-    removeItemFromCart(cartItem);
-  };
-
-  const handleClearItemFromCart = (cartItem) => {
-    clearItemFromCart(cartItem);
-  };
+  const handleRedirect = () => navigate("/plants");
+  const handleSignInRedirect = () => navigate("/auth");
 
   return (
     <Elements stripe={stripePromise}>
@@ -55,22 +39,37 @@ const Checkout = () => {
         </div>
 
         <div className="d-flex flex-column col-12 col-md-6 px-5 py-3 border border-secondary rounded">
-          <h6 className="cart">Your Cart</h6>
+          <h6 className="cart py-4 fs-4">Your Cart</h6>
+
           {cartItems.map((cartItem) => (
             <div key={cartItem.id}>
               <ul className="list-group d-flex justify-content-between align-items-center mb-3">
-                <li className="list-group-item d-flex justify-content-between lh-sm w-100">
+                <li className="list-group-item d-flex justify-content-between lh-sm w-100 align-items-center">
                   <h6 className="my-0 w-50">{cartItem.name}</h6>
                   <small>${cartItem.price}</small>
-                  <span onClick={() => handleAddItemToCart(cartItem)}>
-                    <i className="bi bi-plus"></i>
+
+                  <span
+                    onClick={() => addItemToCart(cartItem)}
+                    role="button"
+                    className="mx-1"
+                  >
+                    <FiPlus size={18} />
                   </span>
-                  <span onClick={() => handleRemoveItemFromCart(cartItem)}>
-                    <i className="bi bi-dash"></i>
+                  <span
+                    onClick={() => removeItemFromCart(cartItem)}
+                    role="button"
+                    className="mx-1"
+                  >
+                    <FiMinus size={18} />
                   </span>
-                  <span onClick={() => handleClearItemFromCart(cartItem)}>
-                    <i className="bi bi-x"></i>
+                  <span
+                    onClick={() => clearItemFromCart(cartItem)}
+                    role="button"
+                    className="mx-1 text-danger"
+                  >
+                    <FiX size={18} />
                   </span>
+
                   <span className="badge bg-secondary rounded-pill">
                     {cartItem.quantity}
                   </span>
@@ -78,6 +77,7 @@ const Checkout = () => {
               </ul>
             </div>
           ))}
+
           <span>
             <h6 className="total">Total: ${cartTotal}</h6>
           </span>
