@@ -14,7 +14,6 @@
     "@stripe/react-stripe-js": "^2.8.0",
     "@stripe/stripe-js": "^4.4.0",
     "bootstrap": "^5.3.3",
-    "bootstrap-icons": "^1.11.3",
     "dotenv": "^16.4.5",
     "firebase": "^10.12.2",
     "prop-types": "^15.8.1",

@@ -1,6 +1,6 @@
 import "./footer.styles.css";
 import { Link } from "react-router-dom";
-import logo from "../../assets/shays-tree.jpg";
+import logo from "/shays-tree.jpg";
 const Footer = () => {
   return (
     <footer className="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 mx-5 border-top">

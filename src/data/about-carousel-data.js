@@ -1,5 +1,5 @@
-import img1 from "../assets/carousel-images/carousel-4.webp";
-import img2 from "../assets/carousel-images/carousel-5.webp";
+import img1 from "/carousel-images/carousel-4.webp";
+import img2 from "/carousel-images/carousel-5.webp";
 const aboutCarouselData = [
   {
     id: 0,

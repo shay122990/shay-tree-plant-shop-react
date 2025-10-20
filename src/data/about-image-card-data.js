@@ -1,6 +1,6 @@
-import img1 from "../assets/carousel-images/carousel-1.webp";
-import img2 from "../assets/carousel-images/carousel-2.jpg";
-import img3 from "../assets/carousel-images/carousel-3.jpg";
+import img1 from "/carousel-images/carousel-1.webp";
+import img2 from "/carousel-images/carousel-2.jpg";
+import img3 from "/carousel-images/carousel-3.jpg";
 
 const imageCardData = [
   {
