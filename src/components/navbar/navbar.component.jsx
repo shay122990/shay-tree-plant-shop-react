@@ -25,12 +25,15 @@ const Navbar = () => {
             <img src={logo} alt="Shay's Tree Logo" />
           </Link>
 
-          <div className="d-lg-none">
+          {/* MOBILE:*/}
+          <div className="d-lg-none d-flex align-items-center gap-3">
+            <CartIcon />
             <button className="menu-toggle" onClick={toggleMenu}>
               <FiMenu size={32} />
             </button>
           </div>
 
+          {/* DESKTOP NAV */}
           <div className="d-none d-lg-flex gap-4 align-items-center">
             <Link className="nav-link" to="/">
               Home
@@ -55,6 +58,7 @@ const Navbar = () => {
         </div>
       </nav>
 
+      {/* MOBILE MENU */}
       <div className={`mobile-menu ${menuOpen ? "open" : ""}`}>
         <button className="close-btn" onClick={closeMenu}>
           ×
@@ -83,7 +87,6 @@ const Navbar = () => {
             Sign In
           </Link>
         )}
-        <CartIcon />
       </div>
 
       {isCartOpen && <CartDropdown />}

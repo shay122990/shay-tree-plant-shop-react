@@ -24,44 +24,48 @@ const Home = () => {
   return (
     <>
       <div className="w-100 d-flex flex-column text-center justify-content-center home-container mb-4">
-        <main className="px-3 cover-container">
-          <h1>Shay&#39;s Tree</h1>
-          <p className="lead">
-            Transform your space with our curated selection of beautiful,
-            easy-care indoor and outdoor plants. <br /> Discover your green
-            oasis today!
-          </p>
-          <p>
-            <Link
-              to="/plants"
-              className="btn btn-lg btn-light border-white bg-white"
-            >
-              Show Me Plants
+        <section className="hero">
+          <div className="hero__content">
+            <span className="hero__eyebrow">Curated Greens</span>
+            <h1 className="hero__title">Shay’s Tree</h1>
+            <p className="hero__subtitle">
+              Beautiful, easy-care plants for cozy corners and sunlit nooks.
+            </p>
+            <Link to="/plants" className="hero__cta">
+              Shop Plants
             </Link>
-          </p>
-        </main>
-      </div>
-      <div className="container d-flex flex-column text-center mt-4">
-        <h2 className="block mt-5">Best Sellers</h2>
-
-        <div className="container text-center my-5">
-          <div className="row justify-content-center">
-            {categories.slice(0, 4).map((category) => (
-              <div key={category.name} className="col-6 col-md-3 mb-4">
-                <Link
-                  to={`/plants/category/${category.name}`}
-                  className="text-decoration-none text-dark"
-                >
-                  <div className="border rounded shadow-sm p-4 h-100 d-flex align-items-center justify-content-center category-tile">
-                    <span className="fw-semibold">{category.name}</span>
-                  </div>
-                </Link>
-              </div>
-            ))}
           </div>
-        </div>
-        <CarouselComponent carouselData={carouselData} />
+        </section>
       </div>
+      <section className="best-sellers">
+        <div className="best-sellers__head">
+          <h2 className="best-sellers__title">Best Sellers</h2>
+          <p className="best-sellers__subtitle">
+            Our most loved green companions
+          </p>
+        </div>
+
+        <div className="best-sellers__grid">
+          {categories.slice(0, 4).map((category) => (
+            <Link
+              key={category.name}
+              to={`/plants/category/${category.name}`}
+              className="best-sellers__card"
+            >
+              <div
+                className="best-sellers__image"
+                style={{ backgroundImage: `url(${category.image})` }}
+              />
+              <div className="best-sellers__overlay" />
+              <div className="best-sellers__name">{category.name}</div>
+            </Link>
+          ))}
+        </div>
+
+        <div className="best-sellers__carousel">
+          <CarouselComponent carouselData={carouselData} />
+        </div>
+      </section>
     </>
   );
 };
