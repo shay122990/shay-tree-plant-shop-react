@@ -42,7 +42,7 @@
   background: none;
   border: none;
   align-self: flex-end;
-  margin-top: none;
+  margin-top: 0;
 }
 
 .nav-link {
