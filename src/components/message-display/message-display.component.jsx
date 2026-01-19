@@ -8,6 +8,7 @@ const MessageDisplay = ({
   buttonText = null,
   onButtonClick = null,
   className = "",
+  children,
 }) => {
   return (
     <div
@@ -19,11 +20,14 @@ const MessageDisplay = ({
         {isSuccess ? "Success: " : "Failure: "}
         {message}
       </p>
+
       {buttonText && (
         <Button buttonType="generic" onClick={onButtonClick}>
           {buttonText}
         </Button>
       )}
+
+      {children}
     </div>
   );
 };
@@ -34,6 +38,7 @@ MessageDisplay.propTypes = {
   buttonText: PropTypes.string,
   onButtonClick: PropTypes.func,
   className: PropTypes.string,
+  children: PropTypes.node,
 };
 
 export default MessageDisplay;

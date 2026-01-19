@@ -35,7 +35,7 @@ const PaymentForm = ({ onSuccess = () => {}, onError = () => {} }) => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({ amount: cartTotal * 100 }),
-        }
+        },
       ).then((res) => res.json());
 
       if (!response.paymentIntent) {
@@ -63,7 +63,7 @@ const PaymentForm = ({ onSuccess = () => {}, onError = () => {} }) => {
         onSuccess("Payment Successful!");
       } else {
         throw new Error(
-          `Payment failed with status: ${paymentResult.paymentIntent.status}`
+          `Payment failed with status: ${paymentResult.paymentIntent.status}`,
         );
       }
     } catch (error) {
@@ -82,6 +82,9 @@ const PaymentForm = ({ onSuccess = () => {}, onError = () => {} }) => {
         onSubmit={paymentHandler}
       >
         <h4 className="cc-payment">Credit Card Payment:</h4>
+        <span className="small">
+          Stripe demo, test it with: 4242 4242 4242 4242 04/42 424 42424
+        </span>
         <CardElement className="border border-dark rounded py-2" />
         <Button buttonType="payment" isLoading={isProcessingPayment}>
           Pay Now

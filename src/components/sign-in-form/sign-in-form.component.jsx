@@ -72,9 +72,8 @@ const SignInForm = () => {
     setFormFields({ ...formFields, [name]: value });
   };
 
-  const handleRedirect = () => {
-    navigate("/plants");
-  };
+  const goToPlants = () => navigate("/plants");
+  const goToCheckout = () => navigate("/checkout");
 
   return (
     <div className="sign-in-container">
@@ -86,10 +85,19 @@ const SignInForm = () => {
               ? "You are signed in!"
               : "There was an issue with your sign-in. Please try again."
           }
-          buttonText={signInSuccess ? "Go to Plants Page" : undefined}
-          onButtonClick={signInSuccess ? handleRedirect : undefined}
           className="sign-in-message"
-        />
+        >
+          {signInSuccess && (
+            <div className="d-flex gap-2">
+              <Button buttonType="generic" type="button" onClick={goToPlants}>
+                Go to Plants Page
+              </Button>
+              <Button buttonType="generic" type="button" onClick={goToCheckout}>
+                Go to Checkout
+              </Button>
+            </div>
+          )}
+        </MessageDisplay>
       ) : (
         <>
           <h1>Sign In</h1>

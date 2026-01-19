@@ -58,7 +58,6 @@ To set up this project locally, follow these steps:
    ```
 
 4. Create a `.env` file in the root directory and add the following environment variables:
-
    - Firebase credentials
    - Stripe public key
    - Other relevant environment variables
@@ -75,9 +74,9 @@ To set up this project locally, follow these steps:
    npm run build
    ```
 
-7. To preview the production build:
+7. To proceed with payment if you decided to host on netlify:
    ```bash
-   npm run preview
+   npx netlify dev
    ```
 
 <!-- ![Installation Image]() -->
@@ -113,6 +112,8 @@ To use Firebase for authentication and data storage:
 ## Stripe Setup
 
 To enable Stripe for payments:
+
+# Make sure you run npx netlify dev to point to correct route for payment
 
 1. Create a Stripe account [here](https://stripe.com/).
 2. Obtain your API keys from the Stripe dashboard.

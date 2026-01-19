@@ -49,6 +49,7 @@
   font-size: 1.25rem;
   color: #333;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .nav-link:hover {
