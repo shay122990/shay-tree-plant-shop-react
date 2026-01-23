@@ -1,4 +1,9 @@
-.image-card-info{
-    overflow-y: scroll;
-
+.card {
+  display: flex;
+}
+.card-body {
+  overflow-y: scroll;
+}
+.card-text {
+  margin-top: 10px;
 }

@@ -13,10 +13,11 @@
 
 .hero {
   position: relative;
-  min-height: 64vh;
+  min-height: 50vh;
   margin: 20px;
   border-radius: var(--hero-radius);
-  background: radial-gradient(
+  background:
+    radial-gradient(
       80% 60% at 20% 10%,
       rgba(143, 191, 159, 0.35) 0%,
       transparent 60%
@@ -85,7 +86,9 @@
   font-weight: 600;
   text-decoration: none;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16);
-  transition: transform 0.12s ease, box-shadow 0.12s ease;
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.12s ease;
 }
 .hero__cta:hover {
   transform: translateY(-1px);
@@ -118,7 +121,7 @@
   font-size: clamp(2rem, 3vw, 6rem);
   font-weight: 900;
   color: #23483a;
-  letter-spacing: 0.5em;
+  letter-spacing: 0.2em;
   margin-bottom: 0.5rem;
 }
 
@@ -146,7 +149,9 @@
   color: inherit;
   height: 260px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .best-sellers__card:hover {

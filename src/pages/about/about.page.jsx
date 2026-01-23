@@ -6,7 +6,7 @@ import imageCardData from "../../data/about-image-card-data";
 
 const About = () => {
   return (
-    <div className="container px-2ß">
+    <div className="container px-2">
       <CarouselComponent carouselData={aboutCarouselData} />
       <div className="d-flex flex-column m-2">
         <h1 className="mt-4">About Shay&#39;s Tree</h1>
@@ -27,12 +27,9 @@ const About = () => {
           pellentesque felis.
         </p>
       </div>
-      <div className="d-flex justify-content-center flex-wrap align-items-center">
+      <div className="row g-4 justify-content-between about-image-container">
         {imageCardData.map((card, index) => (
-          <div
-            className="image-card-wrapper col-12 col-md-6 col-lg-4 mb-3 w-300"
-            key={index}
-          >
+          <div className="col-12 col-md-6 col-lg-4 d-flex" key={index}>
             <ImageCard imageSrc={card.imageSrc} text={card.text} />
           </div>
         ))}

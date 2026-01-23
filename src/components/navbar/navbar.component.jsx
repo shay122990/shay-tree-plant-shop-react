@@ -73,11 +73,17 @@ const Navbar = () => {
           About
         </Link>
         {currentUser ? (
-          <button className="nav-link signout-btn" onClick={signOutUser}>
+          <span
+            className="nav-link"
+            onClick={() => {
+              signOutUser();
+              closeMenu();
+            }}
+          >
             Sign Out
-          </button>
+          </span>
         ) : (
-          <Link className="nav-link" to="/auth">
+          <Link to="/auth" className="nav-link" onClick={closeMenu}>
             Sign In
           </Link>
         )}
