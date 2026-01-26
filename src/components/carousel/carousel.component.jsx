@@ -32,7 +32,7 @@ const CarouselComponent = ({ carouselData }) => {
               className="d-block w-100 carousel-image"
               alt={item.text}
             />
-            <div className="carousel-caption px-1 width-100">
+            <div className="carousel-caption px-1 w-100">
               <p className="carousel-text m-0">{item.text}</p>
             </div>
           </div>
@@ -66,7 +66,7 @@ CarouselComponent.propTypes = {
       image: PropTypes.string.isRequired,
       text: PropTypes.string.isRequired,
       description: PropTypes.string.isRequired,
-    })
+    }),
   ).isRequired,
 };
 

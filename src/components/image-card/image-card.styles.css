@@ -1,9 +1,18 @@
-.card {
-  display: flex;
+.image-card {
+  width: 100%;
 }
-.card-body {
-  overflow-y: scroll;
+
+.image-card__img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
 }
-.card-text {
-  margin-top: 10px;
+
+.image-card__body {
+  max-height: 6rem;
+  overflow-y: auto;
+}
+
+.image-card__text {
+  margin: 0.5rem 0 0 0;
 }

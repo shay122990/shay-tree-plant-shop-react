@@ -1,11 +1,58 @@
-.checkout-img{
-    width: 4rem;
-    height: 4rem;
+.checkout-img {
+  width: 4rem;
+  height: 4rem;
 }
-.cart, .total{
-    font-size: 18px;
-    font-weight: bold;
+.cart,
+.total {
+  font-size: 18px;
+  font-weight: bold;
 }
-.rounded-pill{
-    width:3rem;
+.rounded-pill {
+  width: 3rem;
+}
+
+@media (max-width: 400px) {
+  .checkout-cart-box {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+  }
+
+  .checkout-payment-box {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+  }
+
+  .list-group {
+    padding-left: 0 !important;
+  }
+
+  .list-group-item {
+    flex-wrap: wrap !important;
+    gap: 0.4rem !important;
+  }
+
+  .list-group-item h6 {
+    width: 100% !important;
+    margin: 0 !important;
+    line-height: 1.15;
+  }
+
+  .checkout-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-left: auto;
+  }
+
+  .checkout-controls span.mx-1 {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .rounded-pill {
+    width: auto !important;
+    min-width: 2rem;
+    text-align: center;
+    padding: 0.25rem 0.45rem;
+  }
 }

@@ -17,11 +17,11 @@ const Category = () => {
   }
 
   const categoryPlants = plants.filter((plant) =>
-    category.plantIds.includes(plant.id)
+    category.plantIds.includes(plant.id),
   );
 
   return (
-    <div className="container category-container">
+    <div className="">
       <div className="d-flex justify-content-between w-100 align-items-center py-2 ">
         <h2 className="m-2">{category.name}</h2>
         <button

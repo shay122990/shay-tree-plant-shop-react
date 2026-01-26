@@ -29,15 +29,19 @@ const PlantCard = ({ plant }) => {
   };
 
   return (
-    <div className="card h-200 my-10">
-      <img src={plant.image} className="card-img-top" alt={plant.name} />
-      <div className="card-body h-auto">
-        <h2 className="card-title">{plant.name}</h2>
-        <p className="card-text">{plant.description}</p>
-        <div className="card-description">
+    <div className="card plant-card">
+      <img
+        src={plant.image}
+        className="card-img-top plant-card__img"
+        alt={plant.name}
+      />
+      <div className="card-body plant-card__body">
+        <h2 className="card-title plant-card__title">{plant.name}</h2>
+        <p className="card-text plant-card__text">{plant.description}</p>
+        <div className="plant-card__price">
           Price: ${plant.price.toFixed(2)} <CartIcon />
         </div>
-        <div className="d-flex flex-column cart-btn-container gap-2">
+        <div className="d-flex flex-column plant-card__btns gap-2">
           <Button buttonType="cart" onClick={handleAddToCart}>
             {buttonState.buttonText}
           </Button>

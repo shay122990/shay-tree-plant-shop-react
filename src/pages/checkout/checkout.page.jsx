@@ -6,7 +6,6 @@ import { CartContext } from "../../contexts/cart.context";
 import { UserContext } from "../../contexts/user.context";
 import { useNavigate } from "react-router-dom";
 
-import logo from "/shays-tree.jpg";
 import Button from "../../components/button/button.component";
 import PaymentForm from "../../components/payment-form/payment-form.component";
 
@@ -29,18 +28,16 @@ const Checkout = () => {
 
   return (
     <Elements stripe={stripePromise}>
-      <main className="container-fluid d-flex flex-column justify-content-center align-items-center gap-1">
-        <div className="py-5 text-center">
-          <img src={logo} className="checkout-img d-block mx-auto mb-4" />
+      <main className="container-fluid d-flex flex-column justify-content-center align-items-center gap-3">
+        <div className=" text-center">
           <h2>Checkout Form</h2>
           <p className="lead">
             Please fill out the form to receive your green friends!
           </p>
         </div>
 
-        <div className="d-flex flex-column col-12 col-md-6 px-5 py-3 border border-secondary rounded">
+        <div className="d-flex flex-column col-12 col-md-6 px-5 py-3 border border-secondary rounded checkout-cart-box">
           <h6 className="cart py-4 fs-4">Your Cart</h6>
-
           {cartItems.map((cartItem) => (
             <div key={cartItem.id}>
               <ul className="list-group d-flex justify-content-between align-items-center mb-3">
@@ -77,7 +74,6 @@ const Checkout = () => {
               </ul>
             </div>
           ))}
-
           <span>
             <h6 className="total">Total: ${cartTotal}</h6>
           </span>
