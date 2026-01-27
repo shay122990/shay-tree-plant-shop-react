@@ -43,6 +43,10 @@
   border: none;
   align-self: flex-end;
   margin-top: 0;
+  color: #333;
+}
+.close-btn:hover {
+  color: green;
 }
 
 .nav-link {
