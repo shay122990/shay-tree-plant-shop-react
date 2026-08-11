@@ -26,7 +26,7 @@ const footerCols = [
     title: "Support",
     links: [
       { to: "/shipping", label: "Shipping & Returns" },
-      { to: "/plant-care", label: "Plant Care" },
+      { to: "/about#care-tips", label: "Plant Care" },
       { to: "/privacy", label: "Privacy" },
       { to: "/terms", label: "Terms" },
     ],

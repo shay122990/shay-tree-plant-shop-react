@@ -3,6 +3,7 @@ import CarouselComponent from "../../components/carousel/carousel.component";
 import aboutCarouselData from "../../data/about-carousel-data";
 import ImageCard from "../../components/image-card/image-card.component";
 import imageCardData from "../../data/about-image-card-data";
+import CareTips from "../../components/care-tips/care-tips.component";
 
 const About = () => {
   return (
@@ -34,6 +35,7 @@ const About = () => {
           </div>
         ))}
       </div>
+      <CareTips />
     </div>
   );
 };

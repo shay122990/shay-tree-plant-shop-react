@@ -6,7 +6,7 @@ import About from "./pages/about/about.page";
 import Checkout from "./pages/checkout/checkout.page";
 import AuthenticationPage from "./pages/authentication/authentication.page";
 import Footer from "./components/footer/footer.component";
-import ScrollToTop from "./components/scroll-to-top/scroll-to-top.component";
+// import ScrollToTop from "./components/scroll-to-top/scroll-to-top.component";
 
 const Layout = () => (
   <>
@@ -25,7 +25,7 @@ const Layout = () => (
 const App = () => {
   return (
     <Router>
-      <ScrollToTop />
+      {/* <ScrollToTop /> */}
       <Layout />
     </Router>
   );
